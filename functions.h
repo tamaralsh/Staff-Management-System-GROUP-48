@@ -50,6 +50,7 @@ public:
   static void save_details(string employeeData_filename, vector<Details> Employee_details);
   static void get_Positions(vector<Details> Employee_details,vector<string> &Positions);
   static string store_UserIDpass(string UserIDpass_filename, string employeeID);
+  
 };
 
 #endif // CREATENEDIT_H
