@@ -14,7 +14,7 @@ bool FUNCTION::IDpass_check(int i, vector<IDpass> UserIDpass, string password)
   else { return false; }
 }
 
-// Search employee ID //
+// Search employee ID in User ID and password database //
 int FUNCTION::employeeID_search(string employeeID, vector<IDpass> UserIDpass)
 {
   for (int i = 0; i < UserIDpass.size(); i++)
@@ -25,7 +25,7 @@ int FUNCTION::employeeID_search(string employeeID, vector<IDpass> UserIDpass)
   return -1;
 }
 
-// Search by salary //
+// Search by salary, outputs names and employeeID which are higher or lower than entered value //
 void FUNCTION::search_bySalary(double salary, vector<Details> Employee_details,string high_or_low)
 {
   for (int i = 0; i < Employee_details.size(); i++)
@@ -65,7 +65,7 @@ int FUNCTION::search_byName(string name, vector<Details> Employee_details)
   return 0;
 }
 
-// Search by Employee ID //
+// Search for Employee ID and return index of the employee ID //
 int FUNCTION::search_byEmployeeID(string employee_ID, vector<Details> Employee_details)
 {
   int count = 0;
@@ -79,7 +79,24 @@ int FUNCTION::search_byEmployeeID(string employee_ID, vector<Details> Employee_d
   return 0;
 }
 
-// Print history //
+// Store new user ID and password into "UserIDpass.txt" //
+string FUNCTION::store_UserIDpass(string UserIDpass_filename, string employeeID)
+{
+  string password = password_randomizer();
+  ofstream fout;
+  fout.open(UserIDpass_filename,ios_base::app);
+  if (fout.fail()) { cout << "Error in opening file."; exit(1); }
+
+  fout << endl;
+  fout << employeeID << endl;
+  fout << password;
+
+  fout.close();
+
+  return password;
+}
+
+// Print education and work history //
 void FUNCTION::print_history(vector<string> history)
 {
   for (int i = 0; i < history.size(); i++)
@@ -87,6 +104,8 @@ void FUNCTION::print_history(vector<string> history)
     cout << "    - " << history[i] << endl;
   }
 }
+
+// Print education and work history for edit_details function when delete is called //
 void FUNCTION::print_history_delete(vector<string> history)
 {
   int count = 1;
@@ -129,7 +148,7 @@ string FUNCTION::login_page(vector<IDpass> UserIDpass)
   return authoritylevel;
 }
 
-// Print details //
+// Print employee details //
 void FUNCTION::print_details(Details Employee_details)
 {
   cout << left;
@@ -165,7 +184,7 @@ int FUNCTION::delete_employee(vector<Details> &Employee_details, string employee
   return 0;
 }
 
-
+// Output newest employeeID to be added in create function //
 string FUNCTION::largestEmployeeID(vector<Details> Employee_details,string authority)
 {
   string max = "000000",authoritycheck;
@@ -331,13 +350,14 @@ int FUNCTION::edit_details(Details &details)
         if (edit_selection == 0) return 0;
       }
     }
+  save_details("Employee_Details.txt", Employee_details);
   return 0;
 }
 
 // Create employee //
 void FUNCTION::createEmployee(vector<Details> &Employee_details)
 {
-  string input;
+  string input,employeeID;
   int confirmation;
   Details buffer;
   int numberofHistory;
@@ -356,7 +376,8 @@ void FUNCTION::createEmployee(vector<Details> &Employee_details)
       case 1:
         cout << "Employee authority, H = high, N = normal" << ": ";
         cin >> input;
-        buffer.employeeID = largestEmployeeID(Employee_details,input);
+        employeeID = largestEmployeeID(Employee_details,input)
+        buffer.employeeID = employeeID;
         break;
       case 2:
         cout << "Date of birth (dd/mm/yyyy)" << " : ";
@@ -427,6 +448,10 @@ void FUNCTION::createEmployee(vector<Details> &Employee_details)
     }
   }
   Employee_details.push_back(buffer);
+  save_details("Employee_Details.txt", Employee_details);
+  cout << "Employee details succesfully stored." << endl;
+  cout << "Your Employee ID is " << employeeID << endl;
+  cout << "Your password is " << store_UserIDpass("UserIDpass.txt",employeeID) << endl;
 }
 
 // Save changes made //
@@ -473,7 +498,7 @@ void FUNCTION::get_Positions(vector<Details> Employee_details,vector<string> &Po
   }
 }
 
-// Show Position //
+// Show all positions in the company //
 string FUNCTION::show_Positions(vector<string> Positions)
 {
   int position_number;
@@ -486,3 +511,21 @@ string FUNCTION::show_Positions(vector<string> Positions)
   cout << endl;
   return Positions[position_number-1];
 }
+
+// Password randomizer //
+string FUNCTION::password_randomizer()
+{
+  srand(time(0));
+  string password = "";
+  vector <string> letter = {"abcdefghijklmnopqrstuvwxyz",
+                            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                            "0123456789"};
+  for (int i = 0 ; i < 7 ; i++)
+  {
+    int rand_1 = rand()%3;
+    if (rand_1 == 2) { password += letter[rand_1][rand()%10];  }
+    else { password += letter[rand_1][(rand())%26]; }
+  }
+  return password;
+}
+
