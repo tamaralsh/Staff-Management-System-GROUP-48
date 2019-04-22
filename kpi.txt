@@ -1,0 +1,39 @@
+Chris Hemsworth
+100001
+24 45 2 3 10
+
+Tom Holland
+100324
+20 30 8 6 5
+
+Robert Downey Jr.
+213004
+24 50 10 5 10
+
+Tom Hiddleston
+104958
+25 50 10 5 10
+
+Scarlet Johansson
+100459
+19 14 5 5 9
+
+Mark Ruffalo
+198203
+15 38 9 1 9
+
+Chris Evans
+130529
+20 25 5 5 3
+
+Brie Larson
+100302
+23 47 8 2 7
+
+Benedict Cumberbatch
+189440
+21 41 1 4 10
+
+Chris Pratt
+160020
+11 28 9 3 6
