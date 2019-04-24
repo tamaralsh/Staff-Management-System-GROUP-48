@@ -291,6 +291,21 @@ int FUNCTION::edit_details(Details &details)
           cout << endl << "E = employed, R = resigned, F = fired L = laid off" << endl;
           cout << "Enter new status, E/R/F/L : ";
           cin >> input;
+          switch (input)
+          {
+            case ("E"):
+              input = "Employed";
+              break;
+            case ("R"):
+              input = "Resigned";
+              break;
+            case ("F"):
+              input = "Fired";
+              break;
+            case ("L"):
+              input = "Laid off";
+              break;
+          }
           cout << endl;
           details.status = input;
           break;
