@@ -6,33 +6,13 @@
 #include <fstream>
 #include <iomanip>
 #include <vector>
+#include "loadData.h"
 
 using namespace std;
 
 class FUNCTION
 {
 public:
-  static struct Details
-  {
-    string name;
-    string employeeID;
-    string dateofbirth;
-    string joiningtime;
-    string position;
-    string contactnumber;
-    string email;
-    string status;
-    string attendance;
-    vector<string> history;
-    double salary;
-  };
-    
-  static struct IDpass
-  {
-    string employeeID;
-    string password;
-  };
-  
   static bool IDpass_check(int i, vector<IDpass> UserIDpass, string password);
   static int employeeID_search(string employeeID, vector<IDpass> UserIDpass);
   static void search_bySalary(double salary, vector<Details> Employee_details,string high_or_low);
