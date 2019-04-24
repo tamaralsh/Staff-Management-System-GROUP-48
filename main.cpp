@@ -6,47 +6,33 @@
 #include <algorithm>
 #include <iomanip>
 #include "kpi.h"
-#include "loadData.h"
+#include "Function.h"
 #include "Authority.h"
-#include "functions.h"
 
 using namespace std;
 
 const string normal_user = "You are not authorised.";
-
-// FUNCTION - log-in page //
-string login_page(vector<IDpass> UserIDpass)
+struct Details
 {
-  string employeeID,password,authoritylevel;
-  int i;
-  cout << "Please enter your employee ID" << ": ";
-  cin >> employeeID;
-  cout << endl;
-  authoritylevel = employeeID[0];
-  i = employeeID_search(employeeID,UserIDpass);
+  string name;
+  string employeeID;
+  string dateofbirth;
+  string joiningtime;
+  string position;
+  string contactnumber;
+  string email;
+  string status;
+  string attendance;
+  vector<string> history;
+  double salary;
+};
 
-  while (i == -1)
-  {
-    cout << "ID not found." << endl;
-    cout << "Please enter a valid employee ID" << ": ";
-    cin >> employeeID;
-    cout << endl;
-    i = employeeID_search(employeeID,UserIDpass);
-  }
+struct IDpass
+{
+  string employeeID;
+  string password;
+};
 
-  if (i != -1)
-  {
-    cout << "Please enter your password" << ": ";
-    cin >> password;
-    cout << endl;
-    while (!(IDpass_check(i,UserIDpass,password))) {
-      cout << "Incorrect password. Please enter your password again" << ": ";
-      cin >> password;
-      cout << endl;
-    }
-  }
-  return authoritylevel;
-}
 
 int main()
 {
@@ -57,24 +43,24 @@ int main()
   cout << endl;
 
   // Initialize //
-  string KPIfilename = "kpi,txt", employeeData_filename = "Employee_Details.txt";
+  const string KPIfilename = "kpi,txt", employeeData_filename = "Employee_Details.txt";
   string IDpass_filename = "UserIDpass.txt";
   vector<KPI::Record> book;
 
   // Declare variable //
   int selection,continue_choice;
   string authoritylevel;
-  vector <Details> Employee_details;
-  vector <IDpass> UserIDpass;
-  vector <Details> Employee_details;
+  vector <Function::Details> Employee_details;
+  vector <Function::IDpass> UserIDpass;
+  vector <string> Positions;
 
   // Collect data from Employee Details file and ID file//
-  loadData::load_details(employeeData_filename, Employee_details);
-  loadData::load_IDpass(IDpass_filename, UserIDpass);
-  get_Positions(Employee_details,Positions);
+  Function::load_details(employeeData_filename, Employee_details);
+  Function::load_IDpass(IDpass_filename, UserIDpass);
+  Function::get_Positions(Employee_details,Positions);
 
   // Print log-in page and get "authority level"//
-  authoritylevel = login_page(UserIDpass);
+  authoritylevel = Function::login_page(UserIDpass);
   if (authoritylevel == "1")
   {
     selection = Authority::menu_display_unauthorized();
@@ -97,7 +83,7 @@ int main()
           cin.ignore();
           getline(cin,name);
           cout << endl;
-          while (FUNCTION::search_byName(name,Employee_details) == -1)
+          while (Function::search_byName(name,Employee_details) == -1)
           {
             cout << "There is no record of the name entered."<< endl;
             cout << "Please enter a valid name or enter 0 to exit: ";
@@ -115,7 +101,7 @@ int main()
           cout << "Enter employee ID: ";
           cin >> employeeID;
           cout << endl;
-          i = FUNCTION::search_byEmployeeID(employeeID,Employee_details);
+          i = Function::search_byEmployeeID(employeeID,Employee_details);
           if (i == -1)
           {
             while (i == -1)
@@ -125,10 +111,10 @@ int main()
               cin >> employeeID;
               if (employeeID == "0") { continue_choice = 2; break; }
               cout << endl;
-              i = FUNCTION::search_byEmployeeID(employeeID,Employee_details);
+              i = Function::search_byEmployeeID(employeeID,Employee_details);
             }
           }
-          FUNCTION::print_details(Employee_details[i]);
+          Function::print_details(Employee_details[i]);
           break;
         }
         case 3:
@@ -140,12 +126,12 @@ int main()
           cout << endl << "Choose higher or lower" << endl;
           cout << "Enter H for high and L for low: ";
           cin >> high_or_low;
-          FUNCTION::search_bySalary(salary,Employee_details,high_or_low);
+          Function::search_bySalary(salary,Employee_details,high_or_low);
         }
         case 4:
         {
-          string position = FUNCTION::show_Positions(Positions);
-          FUNCTION::search_byPosition(position,Employee_details);
+          string position = Function::show_Positions(Positions);
+          Function::search_byPosition(position,Employee_details);
           break;
         }
         case 5:
@@ -154,7 +140,7 @@ int main()
         }
         case 6:
         {
-          FUNCTION::createEmployee(Employee_details);
+          Function::createEmployee(Employee_details);
 
           break;
         }
@@ -164,7 +150,7 @@ int main()
           cout << "Enter the employee ID to delete: ";
           cin >> employeeID;
           cout << endl;
-          int i = FUNCTION::delete_employee(Employee_details,employeeID);
+          int i = Function::delete_employee(Employee_details,employeeID);
           if (i == -1)
           {
             while (i == -1)
@@ -174,7 +160,7 @@ int main()
               cin >> employeeID;
               if (employeeID == "0") { continue_choice = 2; break; }
               cout << endl;
-              i = FUNCTION::delete_employee(Employee_details,employeeID);
+              i = Function::delete_employee(Employee_details,employeeID);
             }
           }
           break;
@@ -186,7 +172,7 @@ int main()
           cout << "Enter the employee ID to edit: ";
           cin >> employeeID;
           cout << endl;
-          int i = FUNCTION::search_byEmployeeID(employeeID,Employee_details);
+          int i = Function::search_byEmployeeID(employeeID,Employee_details);
           if (i == -1)
           {
             while (i == -1)
@@ -196,10 +182,10 @@ int main()
               cin >> employeeID;
               if (employeeID == "0") { continue_choice = 2; break; }
               cout << endl;
-              i = FUNCTION::search_byEmployeeID(employeeID,Employee_details);
+              i = Function::search_byEmployeeID(employeeID,Employee_details);
             }
           }
-          FUNCTION::edit_details(Employee_details[i]);
+          Function::edit_details(Employee_details[i]);
         }
         case 9:
         {
@@ -239,6 +225,6 @@ int main()
         }
       }
   }
-  FUNCTION::save_details("Employee_Details_saved.txt",Employee_details);
+  Function::save_details("Employee_Details_saved.txt",Employee_details);
   return 0;
 }
