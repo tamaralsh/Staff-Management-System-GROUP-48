@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <vector>
 #include "functions.h"
+#include "loadData.h"
 
 using namespace std;
 
