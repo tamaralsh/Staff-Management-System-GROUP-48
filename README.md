@@ -25,9 +25,11 @@ Every employee is assigned a 6-digit ID and a password. The first index of the 6
 ### Requisites
 This program is a C++11 standard program. It will run in a C++11 standard complier i.e., Atom in a Ubuntu Linux environment.
 ### Input and output specifications
-Input files _**must**_ be named "Employee_Details.txt" (contains employee details in the order of: name, employee ID, date of birth, time joined the company, position/role, contact number, email, status, attendance, education/work history), "UserIDpass.txt" (stores all the employee IDs and passwords) and "kpi.txt" (stores KPI information).
+Input files **must be named** _**"Employee_Details.txt"**_ (contains employee details in the order of: name, employee ID, date of birth, time joined the company, position/role, contact number, email, status, attendance, education/work history), _**"UserIDpass.txt"**_ (stores all the employee IDs and passwords) and _**"kpi.txt"**_ (stores KPI information).
 
-If any employee information is updated, the newly updated information will be outputed to the "Employee_Details.txt" file for future use.
+In the _**"Employee_Details.txt"**_ file, a '//' is written at the of an employee's information to distinguish information between different employees. 
+
+If any employee information is updated, the newly updated information will be outputed to the _**"Employee_Details.txt"**_ file for future use.
 
 ### Compilation and execution instructions
 To compile this program, type _make file_ in the terminal in a Linux environment. Once the compilation is successful, type _./main_ to run the program.
