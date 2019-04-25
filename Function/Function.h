@@ -54,7 +54,9 @@ public:
   static void search_byPosition(string Position,vector<Details> Employee_details);
   static void get_Positions(vector<Details> Employee_details,vector<string> &Positions);
   static void save_details(string employeeData_filename, vector<Details> Employee_details);
-
+  static void save_UserIDpass(vector<IDpass> UserIDpass,string UserIDpass_filename);
+  static string store_UserIDpass(vector<IDpass> & UserIDpass, string employeeID);
+  static string password_randomizer();
 
 };
 
