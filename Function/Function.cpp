@@ -89,6 +89,16 @@ void Function::print_details(Details Employee_details)
   cout << setw(30) <<"10. Salary" << " : " << Employee_details.salary << endl;
   cout << setw(30) <<"11. Education and work history" << " : " << endl;
   print_history(Employee_details.history);
+  if (Employee_details.user_def_attribute1 != "")
+    cout<< "12. Additional Detail 1: " << Employee_details.user_def_attribute1  << endl;
+  if (Employee_details.user_def_attribute2 != "")
+    cout<< "13. Additional Detail 2: " << Employee_details.user_def_attribute2  << endl;
+  if (Employee_details.user_def_attribute3 != "")
+    cout<< "14. Additional Detail 3: " << Employee_details.user_def_attribute3  << endl;
+  if (Employee_details.user_def_attribute4 != "")
+    cout<< "15. Additional Detail 4: " << Employee_details.user_def_attribute4  << endl;
+  if (Employee_details.user_def_attribute5 != "")
+    cout<< "16. Additional Detail 5: " << Employee_details.user_def_attribute5  << endl;
   cout << endl;
 }
 
