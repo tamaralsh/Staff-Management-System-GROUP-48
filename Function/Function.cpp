@@ -402,8 +402,8 @@ int Function::edit_details(Details &details)
           cout << "Enter new salary: ";
           cin >> input;
           cout << endl;
-          //double salarybuffer = stod(input);
-          //details.salary = salarybuffer;
+          double salarybuffer = stod(input);
+          details.salary = salarybuffer;
           break;
         }
       case 11:
@@ -607,6 +607,21 @@ void Function::get_Positions(vector<Function::Details> Employee_details,vector<s
     if (count == 0) { Positions.push_back(Employee_details[i].position); }
   }
 }
+  
+void Function::add_user_def_attributes(vector <Function::Details> & Employee_details)
+{
+  string name,choice="";
+  while (choice != "N" || choice != "E")
+  {
+    cout << "Enter 'N' if you want to search by name, 'E' if you want to search by employee ID";
+    cin >> choice;
+    cout << endl;
+  }
+  
+  cin >> name_to_add;
+  int i = search_byName(string Name, vector <Function::Details> Employee_details);
+      
+  
 
 void Function::save_details(string employeeData_filename, vector<Function::Details> Employee_details)
 {
@@ -629,6 +644,11 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
     {
       save << (Employee_details[i].history)[j] << endl;
     }
+    save << Employee_details[i].user_def_attribute1 << endl;
+    save << Employee_details[i].user_def_attribute2 << endl;
+    save << Employee_details[i].user_def_attribute3 << endl;
+    save << Employee_details[i].user_def_attribute4 << endl;
+    save << Employee_details[i].user_def_attribute5 << endl;
     save << "//" << endl << endl;
   }
   save.close();
