@@ -19,6 +19,23 @@ int Function::employeeID_search(string employeeID, vector<IDpass> UserIDpass)
   return -1;
 }
 
+void Function::addUserAttribute(vector<Details> & Employee_details, string attribute)
+{
+  for (int i = 0; i < Employee_details.size(); i++)
+  {
+    (Employee_details[i].attribute).push_back(attribute);
+    (Employee_details[i].attribute).push_back("");
+  }
+}
+
+void Function::print_attributes(vector<string> attribute, vector<string> attributevalue)
+{
+  for (int i = 0; i < attribute.size(); i++)
+  {
+    cout << attribute[i] << " : " << attributevalue[i] << endl;
+  }
+}
+
 bool Function::IDpass_check(int i, vector<IDpass> UserIDpass, string password)
 {
   if (UserIDpass[i].password == password) { return true; }
@@ -31,6 +48,48 @@ void Function::print_history(vector<string> history)
   {
     cout << "    - " << history[i] << endl;
   }
+}
+
+string Function::password_randomizer()
+{
+  srand(time(0));
+  string password = "";
+  vector <string> letter = {"abcdefghijklmnopqrstuvwxyz",
+                            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                            "0123456789"};
+  for (int i = 0 ; i < 7 ; i++)
+  {
+    int rand_1 = rand()%3;
+    if (rand_1 == 2) { password += letter[rand_1][rand()%10];  }
+    else { password += letter[rand_1][(rand())%26]; }
+  }
+  return password;
+}
+
+
+string Function::store_UserIDpass(vector<IDpass> & UserIDpass, string employeeID)
+{
+  string password = password_randomizer();
+  IDpass newUser;
+  newUser.employeeID = employeeID;
+  newUser.password = password;
+  UserIDpass.push_back(newUser);
+
+  return password;
+}
+
+void Function::save_UserIDpass(vector<IDpass> UserIDpass,string UserIDpass_filename)
+{
+  ofstream fout;
+  fout.open(UserIDpass_filename);
+  if (fout.fail()) { cout << "Error in opening file."; exit(1); }
+  for (int i = 0 ; i < UserIDpass.size() ; i++)
+  {
+    fout << UserIDpass[i].employeeID << endl;
+    fout << UserIDpass[i].password << endl;
+    fout << endl;
+  }
+  fout.close();
 }
 
 void Function::print_history_delete(vector<string> history)
@@ -74,32 +133,34 @@ string Function::login_page(vector<IDpass> UserIDpass)
   return authoritylevel;
 }
 
+
 void Function::search_byAge(vector <Details> &Employee_details, string DOB_yeartodelete)
 {
-  string confirmation;
-  cout << "Showing all employees with year of birth entered";
+  string confirmation = "";
+  cout << "Showing all employees with year of birth entered: " << endl;
+  int count = 0;
   for (int i = 0; i < Employee_details.size(); i++)
   {
-    if (Employee_details[i].dateofbirth).substr(5,4) == DOB_yeartodelete)
-    Function::print_details(Employee_details[i]);
-    cout << "Enter Y to confirm delete, N to cancel";
-    cin >> confirmation;
-    cout << endl;
-    while (confirmation != "Y" || confirmation != "N")
+    if ((Employee_details[i].dateofbirth).substr(6,4) == DOB_yeartodelete)
     {
-      cout << "Enter Y to confirm delete, N to cancel";
+      Function::print_details(Employee_details[i]);
+      count++;
+      cout << "Enter Y to confirm delete, N to cancel: ";
       cin >> confirmation;
       cout << endl;
+      if (confirmation == "Y")
+      {
+        Function::delete_employee(Employee_details, Employee_details[i].employeeID);
+        i--;
+      }
+      else if (confirmation == "N")
+        continue;
     }
-    if (confirmation == "Y")
-    {
-      Function::delete_employee(Employee_details, Employee_details[i].employeeID);
-    }
-    else if (confirmation == "N")
-      continue;
+  }
+  if (count == 0) { cout << "There are no employees with the year of birth entered"; }
 }
 
-void Function::print_details(Details Employee_details)
+void Function::print_details(Function::Details Employee_details)
 {
   cout << left;
   cout << setw(30) <<"1.  Name" << " : " << Employee_details.name << endl;
@@ -111,19 +172,14 @@ void Function::print_details(Details Employee_details)
   cout << setw(30) <<"7.  Email" << " : " << Employee_details.email << endl;
   cout << setw(30) <<"8.  Status" << " : " << Employee_details.status << endl;
   cout << setw(30) <<"9.  Attendance" << " : " << Employee_details.attendance << endl;
-  cout << setw(30) <<"10. Salary" << " : " << Employee_details.salary << endl;
+  if ((Employee_details.employeeID)[0] == "1")
+    { cout << setw(30) <<"10. Salary" << " : $" << Employee_details.salary << endl; }
+  else if ((Employee_details.employeeID)[0] == "2")
+    { cout << setw(30) <<"10. Salary" << " : You are not authorized to view this. " << endl;
   cout << setw(30) <<"11. Education and work history" << " : " << endl;
   print_history(Employee_details.history);
-  if (Employee_details.user_def_attribute1 != "")
-    cout<< "12. Additional Detail 1: " << Employee_details.user_def_attribute1  << endl;
-  if (Employee_details.user_def_attribute2 != "")
-    cout<< "13. Additional Detail 2: " << Employee_details.user_def_attribute2  << endl;
-  if (Employee_details.user_def_attribute3 != "")
-    cout<< "14. Additional Detail 3: " << Employee_details.user_def_attribute3  << endl;
-  if (Employee_details.user_def_attribute4 != "")
-    cout<< "15. Additional Detail 4: " << Employee_details.user_def_attribute4  << endl;
-  if (Employee_details.user_def_attribute5 != "")
-    cout<< "16. Additional Detail 5: " << Employee_details.user_def_attribute5  << endl;
+  cout << setw(30) <<"12. Additional user attributes" << " : " << endl;
+  print_attributes(Employee_details.attribute,Employee_details.attributevalue);
   cout << endl;
 }
 
@@ -370,21 +426,14 @@ int Function::edit_details(Details &details)
           cout << endl << "E = employed, R = resigned, F = fired L = laid off" << endl;
           cout << "Enter new status, E/R/F/L: ";
           cin >> input;
-          switch (input)
-          {
-            case ("E"):
-              input = "Employed";
-              break;
-            case ("R"):
-              input = "Resigned";
-              break;
-            case ("F"):
-              input = "Fired";
-              break;
-            case ("L"):
-              input = "Laid off";
-              break;
-          }
+          if (input == "E")
+              { input = "Employed"; }
+          else if (input == "R")
+              { input = "Resigned"; }
+          else if (input == "F")
+              { input = "Fired"; }
+          else if (input == "L")
+              { input = "Laid off"; }
           cout << endl;
           details.status = input;
           break;
@@ -448,7 +497,7 @@ int Function::edit_details(Details &details)
   return 0;
 }
 
-void Function::createEmployee(vector<Details> &Employee_details)
+void Function::createEmployee(vector<Function::Details> &Employee_details,vector<Function::IDpass> & UserIDpass)
 {
   string input;
   int confirmation;
@@ -541,6 +590,9 @@ void Function::createEmployee(vector<Details> &Employee_details)
     }
   }
   Employee_details.push_back(buffer);
+  cout << "Employee details succesfully stored." << endl;
+  cout << "Your Employee ID is " << employeeID << endl;
+  cout << "Your password is " << Function::store_UserIDpass(UserIDpass,employeeID) << endl;
 }
 
 void Function::load_IDpass(string IDpass_filename, vector<IDpass> &UserIDpass)
@@ -608,18 +660,15 @@ void Function::get_Positions(vector<Function::Details> Employee_details,vector<s
   }
 }
   
-void Function::add_user_def_attributes(vector <Function::Details> & Employee_details)
+
+void Function::addUser_defined_attribute(vector<Function::Details> Employee_details)
 {
-  string name,choice="";
-  while (choice != "N" || choice != "E")
+  string attribute;
+  cin >> attribute;
+  for (int i = 0; i < Employee_details.size() ; i++)
   {
-    cout << "Enter 'N' if you want to search by name, 'E' if you want to search by employee ID";
-    cin >> choice;
-    cout << endl;
-  }
-  
-  cin >> name_to_add;
-  int i = search_byName(string Name, vector <Function::Details> Employee_details);
+    for (int j = 0; j < (Employee_details.user_def_attributes).size() ; j++)
+      if ((Employee_details.user_def_attributes)[j].attribute == "")
       
   
 
@@ -644,11 +693,7 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
     {
       save << (Employee_details[i].history)[j] << endl;
     }
-    save << Employee_details[i].user_def_attribute1 << endl;
-    save << Employee_details[i].user_def_attribute2 << endl;
-    save << Employee_details[i].user_def_attribute3 << endl;
-    save << Employee_details[i].user_def_attribute4 << endl;
-    save << Employee_details[i].user_def_attribute5 << endl;
+    
     save << "//" << endl << endl;
   }
   save.close();
