@@ -32,7 +32,8 @@ public:
     string attendance;
     vector<string> history;
     double salary;
-    vector<User_def_att> user_def_attributes;
+    vector<string> attribute;
+    vector<string> attributevalue;
   };
 
   struct IDpass
@@ -62,6 +63,7 @@ public:
   static void save_UserIDpass(vector<IDpass> UserIDpass,string UserIDpass_filename);
   static string store_UserIDpass(vector<IDpass> & UserIDpass, string employeeID);
   static string password_randomizer();
+  static void addUser_defined_attribute(string attribute, vector<Details> Employee_detals);
 
 };
 
