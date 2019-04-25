@@ -1,21 +1,37 @@
-# Staff-Management-System-GROUP-48
-Our staff management system works as a database to record information of every employee in the company. 
+# Staff Management System
+The structure of storing employee information on physically is inefficient and time consuming. Accumulating physical files on employees may lead to some information being misplaced. Even if the company stores the files digitally, there is not a system that can keep all the employee information orderly in one place.
 
-Information recorded includes: 
-- name 
-- employee ID 
-- age 
-- length of time at the company
-- position 
-- contact details
-- working shift
-- attendance
-- work and education history
-- key performance indicator
-- salary 
+Hence, a staff management system that works as a database to record information on every employee in a company can help the company to reduce inefficiency, make information retrieval easy and avoid human error. 
 
-This system aims to help the HR department and the managers to keep track of employee information. At the same time, basic information of every employee is available to others, accessible through a search system. Personal information such as work experience, education history and salary will be confidential and only accessible by the HR department and superiors. Thus, we will implement a user ID (employee ID) and password system where the user ID would be the determinant of the staff’s access to confidential information.
+## Functionalities and Features
+### Basic Features
+1. Create a new employee with employee ID, name, age, role and salary.
+2. Search for and delete and employee via their ID, name, age or role.
+3. Fire an employee.
+4. Edit the details of an existing employee
+5. Search for all the employees with a salary higher than or lower than a user input.
+6. Allow adding user-defined attributes, the value of a new attribute of the existing employee should be empty or undefined.
 
-This system will implement a low-level KPI ranking system where employees in the sales department will be able to view their ranking in a leaderboard. The KPI system will be helpful for performance evaluation for the employees themselves. This information could also be useful for the superiors when making decisions for a wage related matters. All commonly inquired information are in the system which makes information retrieval smooth and efficient. 
+### Additional Features
+1. Show a key performance indicator (KPI) leader board (Sorted by weighted score)
+2. Use of a user ID and password system (to protect sensitive information)
+3. Export all the employee information after updates to a local text file (.txt)
+4. Show extra employee information such as length of time at the company, date of birth, atttendance and work/education history.
 
-The HR department, first-line managers, middle managers and top managers maintain and contribute to this staff management system. Only personnels from the HR department and those who hold managerial positions can edit, add new and remove data in this system.
+## Assumptions
+Every employee is assigned a 6-digit ID and a password. The first index of the 6-digit employee ID will determine whether the employee is allowed to create a new employee, edit employee information and view sensitive information such as salary. If the first index is "1", the employee has restricted access to the system and if the first index is "2", the employee has full access to the system.
+
+## General Instructions
+### Requisites
+This program is a C++11 standard program. It will run in a C++11 standard complier i.e., Atom in a Ubuntu Linux environment.
+### Input and output specifications
+Input files _**must**_ be named "Employee_Details.txt" (contains employee details in the order of: name, employee ID, date of birth, time joined the company, position/role, contact number, email, status, attendance, education/work history), "UserIDpass.txt" (stores all the employee IDs and passwords) and "kpi.txt" (stores KPI information).
+
+If any employee information is updated, the newly updated information will be outputed to the "Employee_Details.txt" file for future use.
+
+### Compilation and execution instructions
+To compile this program, type _make file_ in the terminal in a Linux environment. Once the compilation is successful, type _./main_ to run the program.
+
+## Contributors
+- Tamara Lee Su Hui [3035548922]
+- Lam Zi Hao []
