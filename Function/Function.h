@@ -14,6 +14,11 @@ using namespace std;
 class Function
 {
 public:
+  struct User_def_att
+  {
+    string attribute;
+    string value;
+  };
   struct Details
   {
     string name;
@@ -27,7 +32,7 @@ public:
     string attendance;
     vector<string> history;
     double salary;
-    vector<string> user_def_attributes;
+    vector<User_def_att> user_def_attributes;
   };
 
   struct IDpass
