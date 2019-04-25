@@ -8,14 +8,14 @@ Hence, a staff management system that works as a database to record information 
 1. Create a new employee with employee ID, name, age, role and salary.
 2. Search for and delete and employee via their ID, name, age or role.
 3. Fire an employee.
-4. Edit the details of an existing employee
-5. Search for all the employees with a salary higher than or lower than a user input. (only employees with full access can do this)
+4. Edit the details of an existing employee.
+5. Search for all the employees with a salary higher than or lower than a user input (only employees with full access can do this).
 6. Allow adding user-defined attributes, the value of a new attribute of the existing employee should be empty or undefined.
 
 ### Additional Features
-1. Show a key performance indicator (KPI) leader board (Sorted by weighted score)
-2. Use of a user ID and password system (to protect sensitive information)
-3. Export all the employee information after updates to a local text file (.txt)
+1. Show a key performance indicator (KPI) leader board (Sorted by weighted score).
+2. Use of a user ID and password system (to protect sensitive information).
+3. Export all the employee information after updates to a local text file (.txt).
 4. Show extra employee information such as length of time at the company, date of birth, atttendance and work/education history.
 
 ## Assumptions
