@@ -27,7 +27,7 @@ This program is a C++11 standard program. It will run in a C++11 standard compli
 ### Input and output specifications
 Input files **must be named** _**"Employee_Details.txt"**_ (contains employee details in the order of: name, employee ID, date of birth, time joined the company, position/role, contact number, email, status, attendance, education/work history), _**"UserIDpass.txt"**_ (stores all the employee IDs and passwords) and _**"kpi.txt"**_ (stores KPI information).
 
-In the _**"Employee_Details.txt"**_ file, a '//' is written at the of an employee's information to distinguish information between different employees. 
+In the _**"Employee_Details.txt"**_ file, a '//' is written at the end of an employee's information to distinguish information between different employees. 
 
 If any employee information is updated, the newly updated information will be outputed to the _**"Employee_Details.txt"**_ file for future use.
 
