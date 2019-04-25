@@ -74,27 +74,45 @@ string Function::login_page(vector<IDpass> UserIDpass)
   return authoritylevel;
 }
 
-void Function::print_details(Details Employee_details, string authoritylevel)
+void Function::search_byAge(vector <Details> &Employee_details, string DOB_yeartodelete)
+{
+  string confirmation;
+  cout << "Showing all employees with year of birth entered";
+  for (int i = 0; i < Employee_details.size(); i++)
+  {
+    if (Employee_details[i].dateofbirth).substr(5,4) == DOB_yeartodelete)
+    Function::print_details(Employee_details[i]);
+    cout << "Enter Y to confirm delete, N to cancel";
+    cin >> confirmation;
+    cout << endl;
+    while (confirmation != "Y" || confirmation != "N")
+    {
+      cout << "Enter Y to confirm delete, N to cancel";
+      cin >> confirmation;
+      cout << endl;
+    }
+    if (confirmation == "Y")
+    {
+      Function::delete_employee(Employee_details, Employee_details[i].employeeID);
+    }
+    else if (confirmation == "N")
+      continue;
+}
+
+void Function::print_details(Details Employee_details)
 {
   cout << left;
-  cout << setw(30) <<"1.  Name: " << Employee_details.name << endl;
-  cout << setw(30) <<"2.  Employee ID: " << Employee_details.employeeID << endl;
-  cout << setw(30) <<"3.  Date of birth: " << Employee_details.dateofbirth << endl;
-  cout << setw(30) <<"4.  Joining time: " << Employee_details.joiningtime << endl;
-  cout << setw(30) <<"5.  Position: " << Employee_details.position << endl;
-  cout << setw(30) <<"6.  Contact number: " << Employee_details.contactnumber << endl;
-  cout << setw(30) <<"7.  Email: " << Employee_details.email << endl;
-  cout << setw(30) <<"8.  Status: " << Employee_details.status << endl;
-  cout << setw(30) <<"9.  Attendance: " << Employee_details.attendance << endl;
-  if (authoritylevel == "1")
-  {
-    cout << setw(30) <<"10. Salary: You are not authorised to see this information." << endl;
-  } 
-  if (authoritylevel == "2")
-  {
-    cout << setw(30) <<"10. Salary: " << Employee_details.salary << endl;
-  }
-  cout << setw(30) <<"11. Education and work history: " << endl;
+  cout << setw(30) <<"1.  Name" << " : " << Employee_details.name << endl;
+  cout << setw(30) <<"2.  Employee ID" << " : " << Employee_details.employeeID << endl;
+  cout << setw(30) <<"3.  Date of birth" << " : " << Employee_details.dateofbirth << endl;
+  cout << setw(30) <<"4.  Joining time" << " : " << Employee_details.joiningtime << endl;
+  cout << setw(30) <<"5.  Position" << " : " << Employee_details.position << endl;
+  cout << setw(30) <<"6.  Contact number" << " : " << Employee_details.contactnumber << endl;
+  cout << setw(30) <<"7.  Email" << " : " << Employee_details.email << endl;
+  cout << setw(30) <<"8.  Status" << " : " << Employee_details.status << endl;
+  cout << setw(30) <<"9.  Attendance" << " : " << Employee_details.attendance << endl;
+  cout << setw(30) <<"10. Salary" << " : " << Employee_details.salary << endl;
+  cout << setw(30) <<"11. Education and work history" << " : " << endl;
   print_history(Employee_details.history);
   if (Employee_details.user_def_attribute1 != "")
     cout<< "12. Additional Detail 1: " << Employee_details.user_def_attribute1  << endl;
@@ -117,7 +135,7 @@ void Function::load_details(string employeeData_filename, vector <Details> &Empl
   double salary_buffer;
 
   ifstream fin;
-  fin.open(employeeData_filename.c_str());
+  fin.open(employeeData_filename);
   if (fin.fail())
   {
     cout << "Error in loading data" << endl;
@@ -177,7 +195,6 @@ void Function::load_details(string employeeData_filename, vector <Details> &Empl
     }
     Employee_details.push_back(buffer);
   }
-  fin.close();
 }
 
 
@@ -532,7 +549,7 @@ void Function::load_IDpass(string IDpass_filename, vector<IDpass> &UserIDpass)
   IDpass buffer;
 
   ifstream fin;
-  fin.open(IDpass_filename.c_str());
+  fin.open(IDpass_filename);
   if (fin.fail())
   {
     cout << "Error in loading data" << endl;
