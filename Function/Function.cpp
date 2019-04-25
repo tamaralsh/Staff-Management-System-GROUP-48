@@ -329,7 +329,7 @@ int Function::edit_details(Details &details)
         }
       case 3:
         {
-          cout << "Enter new date of birth (dd/mm/yyyy) : ";
+          cout << "Enter new date of birth (dd/mm/yyyy): ";
           cin >> input;
           cout << endl;
           details.dateofbirth = input;
@@ -342,7 +342,7 @@ int Function::edit_details(Details &details)
         }
       case 5:
         {
-          cout << "Enter new position : " ;
+          cout << "Enter new position: " ;
           cin.ignore();
           getline(cin,input);
           cout << endl;
@@ -351,7 +351,7 @@ int Function::edit_details(Details &details)
         }
       case 6:
         {
-          cout << "Enter new contact number : " ;
+          cout << "Enter new contact number: " ;
           cin >> input;
           cout << endl;
           details.contactnumber = input;
@@ -359,7 +359,7 @@ int Function::edit_details(Details &details)
         }
       case 7:
         {
-          cout << "Enter new email : " ;
+          cout << "Enter new email: " ;
           cin >> input;
           cout << endl;
           details.email = input;
@@ -391,7 +391,7 @@ int Function::edit_details(Details &details)
         }
       case 9:
         {
-          cout << "Enter new attendance : " ;
+          cout << "Enter new attendance: " ;
           cin >> input;
           cout << endl;
           details.attendance = input;
@@ -399,7 +399,7 @@ int Function::edit_details(Details &details)
         }
       case 10:
         {
-          cout << "Enter new salary : ";
+          cout << "Enter new salary: ";
           cin >> input;
           cout << endl;
           //double salarybuffer = stod(input);
@@ -409,12 +409,12 @@ int Function::edit_details(Details &details)
       case 11:
         {
           int add_or_delete;
-          cout << "Enter 1 to add, 2 to delete : " ;
+          cout << "Enter 1 to add, 2 to delete: " ;
           cin >> add_or_delete;
           cout << endl;
           if (add_or_delete == 1)
           {
-            cout << "Enter new work and education history (company/education startingtime-endingtime) : ";
+            cout << "Enter new work and education history (company/education startingtime-endingtime): ";
             cin.ignore();
             getline(cin,input);
             cout << endl;
@@ -424,7 +424,7 @@ int Function::edit_details(Details &details)
           {
             int choice;
             Function::print_history_delete(details.history);
-            cout << "Enter choice to delete : ";
+            cout << "Enter choice to delete: ";
             cin >> choice;
             cout << endl;
             (details.history).erase((details.history).begin()+choice-1);
