@@ -27,11 +27,7 @@ public:
     string attendance;
     vector<string> history;
     double salary;
-    string user_def_attribute1 = "";
-    string user_def_attribute2 = "";
-    string user_def_attribute3 = "";
-    string user_def_attribute4 = "";
-    string user_def_attribute5 = "";
+    vector<string> user_def_attributes;
   };
 
   struct IDpass
