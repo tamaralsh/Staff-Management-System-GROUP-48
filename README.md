@@ -9,7 +9,7 @@ Hence, a staff management system that works as a database to record information 
 2. Search for and delete and employee via their ID, name, age or role.
 3. Fire an employee.
 4. Edit the details of an existing employee
-5. Search for all the employees with a salary higher than or lower than a user input.
+5. Search for all the employees with a salary higher than or lower than a user input. (only employees with full access can do this)
 6. Allow adding user-defined attributes, the value of a new attribute of the existing employee should be empty or undefined.
 
 ### Additional Features
