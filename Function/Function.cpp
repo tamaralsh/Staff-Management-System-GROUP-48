@@ -117,7 +117,7 @@ void Function::load_details(string employeeData_filename, vector <Details> &Empl
   double salary_buffer;
 
   ifstream fin;
-  fin.open(employeeData_filename);
+  fin.open(employeeData_filename.c_str());
   if (fin.fail())
   {
     cout << "Error in loading data" << endl;
@@ -177,6 +177,7 @@ void Function::load_details(string employeeData_filename, vector <Details> &Empl
     }
     Employee_details.push_back(buffer);
   }
+  fin.close();
 }
 
 
@@ -531,7 +532,7 @@ void Function::load_IDpass(string IDpass_filename, vector<IDpass> &UserIDpass)
   IDpass buffer;
 
   ifstream fin;
-  fin.open(IDpass_filename);
+  fin.open(IDpass_filename.c_str());
   if (fin.fail())
   {
     cout << "Error in loading data" << endl;
