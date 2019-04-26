@@ -14,7 +14,7 @@ using namespace std;
 class KPI
 {
 public:
-  static class Record
+  class Record
   {
   public:
     string name;
