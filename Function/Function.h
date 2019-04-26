@@ -67,6 +67,7 @@ public:
   static int delete_byName(vector<Details> &Employee_details, string name);
   static void addUserAttribute(vector<Details> & Employee_details, string attribute);
   static void add_attribute_toAll(vector<Details> & Employee_details, vector<string> buffer_attribute);
+  static void search_byAge(string yeaRofBirth,vector<Details> Employee_details);
 
 
 };
