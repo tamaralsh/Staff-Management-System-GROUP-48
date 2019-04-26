@@ -28,6 +28,26 @@ void Function::addUserAttribute(vector<Details> & Employee_details, string attri
   }
 }
 
+void Function::string delete_Positions(vector<string> Positions,Employee_details)
+{
+  int position_number;
+  for (int i = 0; i < Positions.size(); i++)
+  {
+    cout << i+1 << "  " << Positions[i] << endl;
+  }
+  cout << "Enter choice of position to delete : ";
+  cin >> position_number;
+  cout << endl;
+  for (int i = 0 ; i < Employee_details.size() ; i ++)
+  {
+    if (Employee_details[i].position == Positions[position_number-1])
+    {
+      Function::delete_employee(Employee_details,Employee_details[i].employeeID);
+    }
+  }
+}
+
+
 void Function::print_attributes(vector<string> attribute, vector<string> attributevalue)
 {
   for (int i = 0; i < attribute.size(); i++)
@@ -753,7 +773,10 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
     {
       save << (Employee_details[i].history)[j] << endl;
     }
-    
+    for (int k = 0; k <(Employee_details[i].attribute).size(); k++)
+    {
+      save << (Employee_details[i].attribute)[j] << endl;
+      save << (Employee_details[i].attributevalue)[j] << endl;    
     save << "//" << endl << endl;
   }
   save.close();
