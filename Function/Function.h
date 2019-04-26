@@ -48,7 +48,7 @@ public:
   static int search_byName(string name, vector<Details> Employee_details);
   static int search_byEmployeeID(string employee_ID, vector<Details> Employee_details);
   static string largestEmployeeID(vector<Details> Employee_details,string authority);
-  static int edit_details(Details &details);
+  static int edit_details(vector<Details>Employee_details, Details &details);
   static void createEmployee(vector<Details> &Employee_details, vector<IDpass> &UserIDpass);
   static void load_IDpass(string IDpass_filename, vector<IDpass> &UserIDpass);
   static string show_Positions(vector<string> Positions);
@@ -67,7 +67,7 @@ public:
   static int delete_byName(vector<Details> &Employee_details, string name);
   static void addUserAttribute(vector<Details> & Employee_details, string attribute);
   static void add_attribute_toAll(vector<Details> & Employee_details, vector<string> buffer_attribute);
-  
+
 
 };
 
