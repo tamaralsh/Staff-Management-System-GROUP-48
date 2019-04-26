@@ -154,7 +154,7 @@ string Function::login_page(vector<Function::IDpass> UserIDpass)
 }
 
 
-void Function::search_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete)
+void Function::delete_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete)
 {
   string confirmation = "";
   cout << "Showing all employees with year of birth entered: " << endl;
