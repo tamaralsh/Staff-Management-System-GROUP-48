@@ -439,7 +439,7 @@ string Function::largestEmployeeID(vector<Function::Details> Employee_details,st
 }
 
 
-int Function::edit_details(Function::Details &details)
+int Function::edit_details(vector<Function::Details>Employee_details, Function::Details &details)
 {
   int edit_selection;
   string input;
@@ -576,6 +576,12 @@ int Function::edit_details(Function::Details &details)
             getline(cin,input);
             cout << endl;
             (details.attribute).push_back(input);
+            for (int i = 0; i < Employee_details.size(); i++)
+            {
+              if ((Employee_details[i].attribute)[Employee_details.size()-1] == input)
+              { continue; }
+              (Employee_details[i].attribute).push_back(input);
+            }
             cout << "Enter the corresponding attribute value : ";
             getline(cin,input);
             cout << endl;
@@ -583,13 +589,19 @@ int Function::edit_details(Function::Details &details)
           }
           if (add_or_delete == 2)
           {
-            int choice;
+            int choice,index;
             Function::print_attribute_delete(details.attribute,details.attributevalue);
-            cout << "Enter choice to delete : ";
+            cout << "WARNING: Deleting this attribute deletes the similar attribute for all employees" << endl;
+            cout << "Enter choice to delete or enter 0 to exit : ";
             cin >> choice;
             cout << endl;
-            (details.attribute).erase((details.attribute).begin()+choice-1);
-            (details.attributevalue).erase((details.attributevalue).begin()+choice-1);
+            if (choice == 0)
+            { break; }
+            for (int i = 0; i < Employee_details.size(); i++)
+            {
+              (Employee_details[i].attribute).erase((Employee_details[i].attribute).begin()+choice-1);
+              (Employee_details[i].attributevalue).erase((Employee_details[i].attributevalue).begin()+choice-1);
+            }
           }
           break;
         }
@@ -609,11 +621,24 @@ int Function::edit_details(Function::Details &details)
   return 0;
 }
 
+void add_attribute_toAll(vector<Details> & Employee_details, vector<string> buffer_attribute)
+{
+  for (int i = 0; i < buffer_attribute.size(); i++)
+  {
+    for (int j = 0; j < Employee_details.size(); j++)
+    {
+      (Employee_details[j].attribute).push_back(buffer_attribute[i]);
+      (Employee_details[j].attributevalue).push_back("");
+    }
+  }
+}
+
 void Function::createEmployee(vector<Function::Details> &Employee_details,vector<Function::IDpass> & UserIDpass)
 {
   string input;
   int confirmation;
   Details buffer;
+  vector<string> buffer_attribute;
   int numberofHistory;
   double salary_input;
 
@@ -703,6 +728,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             cin.ignore();
             getline(cin,input);
             (buffer.attribute).push_back(input);
+            buffer_attribute.push_back(input);
             cout << "Enter the attribute value : " << endl;
             cin >> input;
             if (buffer.attribute.size() > 0)
@@ -736,6 +762,8 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
     }
   }
   Employee_details.push_back(buffer);
+  add_attribute_toAll(Employee_details, buffer_attribute);
+  buffer_attribute.clear();
   cout << "Employee details succesfully stored." << endl;
   cout << "Your Employee ID is " << employeeID << endl;
   cout << "Your password is " << Function::store_UserIDpass(UserIDpass,employeeID) << endl;
@@ -828,6 +856,7 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
     {
       save << (Employee_details[i].history)[j] << endl;
     }
+    save << "/" << endl;
     for (int k = 0; k <(Employee_details[i].attribute).size(); k++)
     {
       save << (Employee_details[i].attribute)[j] << endl;
