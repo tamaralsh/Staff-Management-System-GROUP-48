@@ -28,7 +28,7 @@ void Function::addUserAttribute(vector<Details> & Employee_details, string attri
   }
 }
 
-void Function::string delete_Positions(vector<string> Positions,Employee_details)
+void Function::delete_Positions(vector<string> Positions, vector <Function::Details> Employee_details)
 {
   int position_number;
   for (int i = 0; i < Positions.size(); i++)
