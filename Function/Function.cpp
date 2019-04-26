@@ -27,7 +27,7 @@ void Function::addUserAttribute(vector<Function::Details> & Employee_details, st
   }
 }
 
-void Function::delete_byPositions(vector<string> Positions, vector <Function::Details> Employee_details)
+void Function::delete_byPositions(vector<string> Positions, vector <Function::Details> Employee_details, string authoritylevel)
 {
   int position_number,count;
   string confirmation;
@@ -134,7 +134,7 @@ void Function::print_history_delete(vector<string> history)
   }
 }
 // login page //
-string Function::login_page(vector<Function::IDpass> UserIDpass)
+string Function::login_page(vector<Function::IDpass> UserIDpass, string authoritylevel)
 {
   string employeeID,password,authoritylevel;
   int i;
@@ -167,7 +167,7 @@ string Function::login_page(vector<Function::IDpass> UserIDpass)
 }
 
 
-void Function::delete_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete)
+void Function::delete_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete, string authoritylevel)
 {
   string confirmation = "";
   cout << "Showing all employees with year of birth entered: " << endl;
@@ -320,7 +320,7 @@ void Function::search_bySalary(double salary, vector<Function::Details> Employee
   }
 }
 
-int Function::delete_byEmployeeID(vector<Function::Details> &Employee_details, string employeeID)
+int Function::delete_byEmployeeID(vector<Function::Details> &Employee_details, string employeeID, string authoritylevel)
 {
   int count = 0;
   string confirmation;
@@ -349,7 +349,7 @@ int Function::delete_byEmployeeID(vector<Function::Details> &Employee_details, s
   return 0;
 }
 
-int Function::delete_byName(vector<Function::Details> &Employee_details, string name)
+int Function::delete_byName(vector<Function::Details> &Employee_details, string name, string authoritylevel)
 {
   int count = 0;
   string confirmation;
@@ -378,7 +378,7 @@ int Function::delete_byName(vector<Function::Details> &Employee_details, string 
   return 0;
 }
 
-int Function::search_byName(string name, vector<Function::Details> Employee_details)
+int Function::search_byName(string name, vector<Function::Details> Employee_details, string authoritylevel)
 {
   int count = 0;
   for (int i = 0; i < Employee_details.size(); i++)
@@ -440,7 +440,7 @@ string Function::largestEmployeeID(vector<Function::Details> Employee_details,st
 }
 
 
-int Function::edit_details(Function::Details &details)
+int Function::edit_details(Function::Details &details, string authoritylevel)
 {
   int edit_selection;
   string input;
@@ -779,7 +779,7 @@ string Function::show_Positions(vector<string> Positions)
   return Positions[position_number-1];
 }
 
-void Function::search_byPosition(string Position,vector<Function::Details> Employee_details)
+void Function::search_byPosition(string Position,vector<Function::Details> Employee_details, string authoritylevel)
 {
   for (int i = 0 ; i < Employee_details.size() ; i ++)
   {
@@ -838,7 +838,7 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
   save.close();
 }
 
-void Function::delete_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete)
+void Function::delete_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete, string authoritylevel)
 {
   string confirmation = "";
   cout << "Showing all employees with year of birth entered: " << endl;
