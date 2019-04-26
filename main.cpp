@@ -124,6 +124,15 @@ int main()
         }
         case 3:
         {
+          string yearofBirth;
+          cout << "Enter a year of birth(four digit) of employees to be deleted: ";
+          cin >> yearofBirth;
+          cout << endl;
+          Function::search_byAge(yearofBirth,Employee_details);          
+        }
+        
+        case 4:
+        {
           double salary;
           string high_or_low;
           cout << "Enter salary: ";
@@ -133,23 +142,23 @@ int main()
           cin >> high_or_low;
           Function::search_bySalary(salary,Employee_details,high_or_low);
         }
-        case 4:
+        case 5:
         {
           string position = Function::show_Positions(Positions);
           Function::search_byPosition(position,Employee_details);
           break;
         }
-        case 5:
+        case 6:
         {
           KPI::showKPIboard(book, KPIfilename);
         }
-        case 6:
+        case 7:
         {
           Function::createEmployee(Employee_details);
 
           break;
         }
-        case 7:
+        case 8:
         {
           string choice;
           cout << "Choose the attribute for searching to delete" << endl;
@@ -187,7 +196,7 @@ int main()
           }
           break;
         }
-        case 8:
+        case 9:
         {
           string employeeID;
           Details buffer;
