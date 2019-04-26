@@ -199,7 +199,7 @@ void Function::print_details(Function::Details Employee_details)
 void load_details(string employeeData_filename, vector <Function::Details> &Employee_details)
 {
   string input;
-  Details buffer;
+  Function::Details buffer;
   double salary_buffer;
 
   ifstream fin;
