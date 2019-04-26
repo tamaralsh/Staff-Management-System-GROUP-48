@@ -21,14 +21,14 @@ int Authority::menu_display_unauthorized()
   cout << endl << "Enter your choice: ";
 
   cin >> selection;
-  while (selection > 4)
+  while (selection > 5)
   {
     cout << "Please enter a valid option from the menu : ";
     cin >> selection;
     cout << endl;
   }
-  if (selection == 3) { selection++; }
   if (selection == 4) { selection++; }
+  if (selection == 5) { selection++; }
   cout << endl;
 
   return selection;
