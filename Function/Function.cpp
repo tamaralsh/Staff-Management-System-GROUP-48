@@ -134,7 +134,7 @@ void Function::print_history_delete(vector<string> history)
   }
 }
 // login page //
-string Function::login_page(vector<Function::IDpass> UserIDpass, string authoritylevel)
+string Function::login_page(vector<Function::IDpass> UserIDpass)
 {
   string employeeID,password,authoritylevel;
   int i;
