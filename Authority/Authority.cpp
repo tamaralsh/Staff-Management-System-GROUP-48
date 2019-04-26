@@ -26,9 +26,9 @@ int Authority::menu_display_unauthorized()
     cout << "Please enter a valid option from the menu : ";
     cin >> selection;
     cout << endl;
+    if (selection == 4) { selection++; }
+    if (selection == 5) { selection++; }
   }
-  if (selection == 4) { selection++; }
-  if (selection == 5) { selection++; }
   cout << endl;
 
   return selection;
