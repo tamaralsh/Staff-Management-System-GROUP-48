@@ -621,7 +621,7 @@ int Function::edit_details(vector<Function::Details>Employee_details, Function::
   return 0;
 }
 
-void add_attribute_toAll(vector<Details> & Employee_details, vector<string> buffer_attribute)
+void Function::add_attribute_toAll(vector<Function::Details> & Employee_details, vector<string> buffer_attribute)
 {
   for (int i = 0; i < buffer_attribute.size(); i++)
   {
