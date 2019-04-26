@@ -216,7 +216,7 @@ int main()
               i = Function::search_byEmployeeID(employeeID,Employee_details);
             }
           }
-          Function::edit_details(Employee_details[i]);
+          Function::edit_details(Employee_details,Employee_details[i]);
           break;
         }
       }
