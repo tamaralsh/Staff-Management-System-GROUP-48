@@ -71,6 +71,7 @@ public:
   static void delete_byEmployeeID(vector<Details> &Employee_details, string employeeID, string authoritylevel);
   static void delete_byName(vector<Details> &Employee_details, string name, string authoritylevel);
   static void addUserAttribute(vector<Details> & Employee_details, string attribute);
+  static void add_attribute_toAll(vector<Details> & Employee_details, vector<string> buffer_attribute);
   
 
 };
