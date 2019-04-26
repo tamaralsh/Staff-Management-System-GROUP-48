@@ -14,12 +14,12 @@ Hence, a staff management system that works as a database to record information 
 
 ### Additional Features
 1. Show a key performance indicator (KPI) leader board (Sorted by weighted score).
-2. Use of a user ID and password system (to protect sensitive information).
+2. Use of a user ID and password system (to restrict certain functions like edit/delete).
 3. Export all the employee information after updates to a local text file (.txt).
 4. Show extra employee information such as length of time at the company, date of birth, atttendance and work/education history.
 
 ## Assumptions
-Every employee is assigned a 6-digit ID and a password. The first index of the 6-digit employee ID will determine whether the employee is allowed to create a new employee, edit employee information and view sensitive information such as salary. If the first index is "1", the employee has restricted access to the system and if the first index is "2", the employee has full access to the system.
+Every employee is assigned a 6-digit ID and a password. The first index of the 6-digit employee ID will determine whether the employee is allowed to create a new employee, edit employee information and delete employee. If the first index is "1", the employee has restricted access to the system and if the first index is "2", the employee has full access to the system.
 
 ## General Instructions
 ### Requisites
