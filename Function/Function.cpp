@@ -295,7 +295,7 @@ void Function::load_details(string employeeData_filename, vector <Function::Deta
 void Function::search_byAge(string yeaRofBirth, vector<Function::Details> Employee_details)
 {
   int count = 0;
-  for (int i = 0; i < Employee_details ; i++)
+  for (int i = 0; i < Employee_details.size() ; i++)
   {
     if ((Employee_details[i].dateofbirth).substr(6,4) == yeaRofBirth)
     {
