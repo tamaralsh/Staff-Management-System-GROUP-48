@@ -549,7 +549,6 @@ int Function::edit_details(Function::Details &details)
         if (edit_selection == 0) return 0;
       }
     }
-  save_details("Employee_Details.txt",Employee_details);
   return 0;
 }
 
@@ -683,7 +682,6 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   cout << "Employee details succesfully stored." << endl;
   cout << "Your Employee ID is " << employeeID << endl;
   cout << "Your password is " << Function::store_UserIDpass(UserIDpass,employeeID) << endl;
-  save_details("Employee_Details.txt",Employee_details);
 }
 
 void Function::load_IDpass(string IDpass_filename, vector<IDpass> &UserIDpass)
