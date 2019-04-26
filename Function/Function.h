@@ -68,6 +68,8 @@ public:
   static void print_attribute_delete(vector<string> attribute, vector<string> attributevalue);
   static void delete_byAge(vector <Details> &Employee_details, string DOB_yeartodelete);
   static void delete_byPositions(vector<string> Positions, vector <Details> Employee_details);
+  static void delete_byEmployeeID(vector<Details> &Employee_details, string employeeID);
+  static void delete_byName(vector<Details> &Employee_details, string name);
   
 
 };
