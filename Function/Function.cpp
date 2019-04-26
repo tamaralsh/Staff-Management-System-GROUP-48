@@ -196,10 +196,10 @@ void Function::print_details(Function::Details Employee_details)
   cout << endl;
 }
 
-void Function::load_details(string employeeData_filename, vector <Function::Details> &Employee_details)
+void load_details(string employeeData_filename, vector <Function::Details> &Employee_details)
 {
   string input;
-  Function::Details buffer;
+  Details buffer;
   double salary_buffer;
 
   ifstream fin;
@@ -213,7 +213,7 @@ void Function::load_details(string employeeData_filename, vector <Function::Deta
   while (getline(fin,input))
   {
     (buffer.history).clear();
-    for (int i = 0; i < 11; i++)
+    for (int i = 0; i < 12; i++)
     {
       switch (i)
       {
@@ -250,19 +250,46 @@ void Function::load_details(string employeeData_filename, vector <Function::Deta
           break;
         case 10:
         {
+          if (input == "/")
+            break;
           (buffer.history).push_back(input);
           while (getline(fin,input))
           {
-            if (input == "//") { break; }
+            if (input == "/") { break; }
             (buffer.history).push_back(input);
           }
           break;
         }
+        case 11:
+        {
+          int i = 0;
+          if (input == "//") { break; }
+          cout << "storing" << input << "into attribute" << endl;
+          (buffer.attribute).push_back(input);
+          while(getline(fin,input))
+          {
+            if (input == "//") { break; }
+            if ((i % 2) == 0)
+            {
+              cout << "storing" << input << "into attributevalue" << endl;
+              (buffer.attributevalue).push_back(input);
+            }
+            else
+            {
+              cout << "storing" << input << "into attribute" << endl;
+              (buffer.attribute).push_back(input);
+            }
+            i++;
+          }
+        }
+        break;
       }
       getline(fin,input);
     }
     Employee_details.push_back(buffer);
+    buffer = {};
   }
+  fin.close();
 }
 
 
