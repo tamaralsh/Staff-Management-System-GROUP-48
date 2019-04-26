@@ -316,13 +316,13 @@ int Function::delete_employee(vector<Function::Details> &Employee_details, strin
       cout << "Enter Y to confirm, N to cancel";
       cin >> confirmation;
       cout << endl;
-      if (confirmation == Y)
+      if (confirmation == "Y")
       {
         Employee_details.erase(Employee_details.begin()+i);
         count++;
         cout << "Employee details are successfully deleted." << endl;
       }
-      else if (confirmation == N)
+      else if (confirmation == "N")
       {
         cout << "Cancelled." << endl;
         continue;
