@@ -294,13 +294,16 @@ void Function::load_details(string employeeData_filename, vector <Function::Deta
 
 void Function::search_byAge(string yeaRofBirth, vector<Function::Details> Employee_details)
 {
+  int count = 0;
   for (int i = 0; i < Employee_details ; i++)
   {
     if ((Employee_details[i].dateofbirth).substr(6,4) == yeaRofBirth)
     {
+      count++;
       Function::print_details(Employee_details[i]);
     }
   }
+  if (count == 0) { cout << "There are no employees with year of birth entered" << endl; }
 }
 
 void Function::search_bySalary(double salary, vector<Function::Details> Employee_details,string high_or_low)
