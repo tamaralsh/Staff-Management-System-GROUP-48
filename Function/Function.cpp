@@ -758,3 +758,30 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
   }
   save.close();
 }
+
+void Function::delete_byAge(vector <Details> &Employee_details, string DOB_yeartodelete)
+{
+  string confirmation = "";
+  cout << "Showing all employees with year of birth entered: " << endl;
+  int count = 0;
+  for (int i = 0; i < Employee_details.size(); i++)
+  {
+    if ((Employee_details[i].dateofbirth).substr(6,4) == DOB_yeartodelete)
+    {
+      Function::print_details(Employee_details[i]);
+      count++;
+      cout << "Enter Y to confirm delete, N to cancel: ";
+      cin >> confirmation;
+      cout << endl;
+      if (confirmation == "Y")
+      {
+        Function::delete_employee(Employee_details, Employee_details[i].employeeID);
+        i--;
+      }
+      else if (confirmation == "N")
+        continue;
+    }
+  }
+  if (count == 0) { cout << "There are no employees with the year of birth entered"; }
+}
+
