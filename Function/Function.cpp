@@ -42,7 +42,7 @@ void Function::delete_byPositions(vector<string> Positions, vector <Function::De
   {
     if (Employee_details[i].position == Positions[position_number-1])
     {
-      Function::print_details(Employee_details[i]);
+      Function::print_details(Employee_details[i], authoritylevel);
       cout << "Enter Y to confirm, N to cancel : ";
       cin >> confirmation;
       count++;
@@ -51,7 +51,7 @@ void Function::delete_byPositions(vector<string> Positions, vector <Function::De
         Employee_details.erase(Employee_details.begin()+i);
         i--;
       }
-      else 
+      else
       {
         cout << "Cancelled" << endl;
         continue;
@@ -176,7 +176,7 @@ void Function::delete_byAge(vector <Function::Details> &Employee_details, string
   {
     if ((Employee_details[i].dateofbirth).substr(6,4) == DOB_yeartodelete)
     {
-      Function::print_details(Employee_details[i]);
+      Function::print_details(Employee_details[i], authoritylevel);
       count++;
       cout << "Enter Y to confirm delete, N to cancel: ";
       cin >> confirmation;
@@ -328,7 +328,7 @@ int Function::delete_byEmployeeID(vector<Function::Details> &Employee_details, s
   {
     if (employeeID == Employee_details[i].employeeID)
     {
-      Function::print_details(Employee_details[i];
+      Function::print_details(Employee_details[i], authoritylevel);
       cout << "Enter Y to confirm, N to cancel";
       cin >> confirmation;
       cout << endl;
@@ -357,7 +357,7 @@ int Function::delete_byName(vector<Function::Details> &Employee_details, string 
   {
     if (name == Employee_details[i].name)
     {
-      Function::print_details(Employee_details[i];
+      Function::print_details(Employee_details[i], authoritylevel);
       cout << "Enter Y to confirm, N to cancel";
       cin >> confirmation;
       cout << endl;
@@ -384,7 +384,7 @@ int Function::search_byName(string name, vector<Function::Details> Employee_deta
   for (int i = 0; i < Employee_details.size(); i++)
   {
     if (Employee_details[i].name == name)
-    {  Function::print_details(Employee_details[i]); count++; }
+    {  Function::print_details(Employee_details[i], authoritylevel); count++; }
   }
   if (count == 0) { return -1; }
 
@@ -444,7 +444,7 @@ int Function::edit_details(Function::Details &details)
 {
   int edit_selection;
   string input;
-  Function::print_details(details);
+  Function::print_details(details, authoritylevel);
   cout << endl << "Enter numbers 1-12 to change their respective details : ";
   cin >> edit_selection;
   cout << endl;
@@ -598,7 +598,7 @@ int Function::edit_details(Function::Details &details)
 
     if (edit_selection != 2 && edit_selection != 4)
       {
-        Function::print_details(details);
+        Function::print_details(details, authoritylevel);
         cout << endl << "Check for the changes." << endl;
         cout << "If you wish to exit, enter 0. " << endl;
         cout << "Else, enter numbers 1-12 to change their respective details : ";
@@ -697,7 +697,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
       case 11:
         {
           int continue_choice = 1;
-          
+
           while (continue_choice !=0)
           {
             cout << "Enter any additional attributes : " << endl;
@@ -706,13 +706,13 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             (buffer.attribute).push_back(input);
             cout << "Enter the attribute value : " << endl;
             cin >> input;
-            if ((buffer.attribute.size() > 0) 
+            if ((buffer.attribute.size() > 0)
               { Function::print_attribute(buffer.attribute,buffer.attributevalue); }
-            
+
             cout << "Enter 1 to continue or 0 to exit: " ;
             cin >> continue_choice;
             cout << endl;
-                
+
             while (continue_choice != 1 && continue_choice != 0)
               {
                 cout << "Enter 1 to continue or 0 to exit: " ;
@@ -722,10 +722,10 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             }
             break;
           }
-         
+
   }
 
-  Function::print_details(buffer);
+  Function::print_details(buffer, authoritylevel);
   cout << "Check details entered. If you wish to edit, enter 1, else, enter 0 to confirm : ";
   cin >> confirmation;
   cout << endl;
@@ -785,7 +785,7 @@ void Function::search_byPosition(string Position,vector<Function::Details> Emplo
   {
     if (Employee_details[i].position == Position)
     {
-      Function::print_details(Employee_details[i]);
+      Function::print_details(Employee_details[i], authoritylevel);
     }
   }
 }
@@ -806,7 +806,7 @@ void Function::get_Positions(vector<Function::Details> Employee_details,vector<s
     if (count == 0) { Positions.push_back(Employee_details[i].position); }
   }
 }
-  
+
 
 void Function::save_details(string employeeData_filename, vector<Function::Details> Employee_details)
 {
@@ -832,7 +832,7 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
     for (int k = 0; k <(Employee_details[i].attribute).size(); k++)
     {
       save << (Employee_details[i].attribute)[j] << endl;
-      save << (Employee_details[i].attributevalue)[j] << endl;    
+      save << (Employee_details[i].attributevalue)[j] << endl;
     save << "//" << endl << endl;
   }
   save.close();
@@ -847,7 +847,7 @@ void Function::delete_byAge(vector <Function::Details> &Employee_details, string
   {
     if ((Employee_details[i].dateofbirth).substr(6,4) == DOB_yeartodelete)
     {
-      Function::print_details(Employee_details[i]);
+      Function::print_details(Employee_details[i], authoritylevel);
       count++;
       cout << "Enter Y to confirm delete, N to cancel: ";
       cin >> confirmation;
@@ -863,4 +863,3 @@ void Function::delete_byAge(vector <Function::Details> &Employee_details, string
   }
   if (count == 0) { cout << "There are no employees with the year of birth entered"; }
 }
-
