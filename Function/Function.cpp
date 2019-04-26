@@ -196,7 +196,7 @@ void Function::print_details(Function::Details Employee_details)
   cout << endl;
 }
 
-void load_details(string employeeData_filename, vector <Function::Details> &Employee_details)
+void Function::load_details(string employeeData_filename, vector <Function::Details> &Employee_details)
 {
   string input;
   Function::Details buffer;
