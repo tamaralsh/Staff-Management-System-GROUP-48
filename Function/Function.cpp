@@ -160,7 +160,7 @@ void Function::search_byAge(vector <Details> &Employee_details, string DOB_yeart
   if (count == 0) { cout << "There are no employees with the year of birth entered"; }
 }
 
-void Function::print_details(Function::Details Employee_details)
+void Function::print_details(Function::Details Employee_details,string authoritylevel)
 {
   cout << left;
   cout << setw(30) <<"1.  Name" << " : " << Employee_details.name << endl;
@@ -172,14 +172,19 @@ void Function::print_details(Function::Details Employee_details)
   cout << setw(30) <<"7.  Email" << " : " << Employee_details.email << endl;
   cout << setw(30) <<"8.  Status" << " : " << Employee_details.status << endl;
   cout << setw(30) <<"9.  Attendance" << " : " << Employee_details.attendance << endl;
-  if ((Employee_details.employeeID)[0] == "1")
+  if (authoritylevel == "2")
     { cout << setw(30) <<"10. Salary" << " : $" << Employee_details.salary << endl; }
-  else if ((Employee_details.employeeID)[0] == "2")
+  else if (authoritylevel == "1")
     { cout << setw(30) <<"10. Salary" << " : You are not authorized to view this. " << endl;
   cout << setw(30) <<"11. Education and work history" << " : " << endl;
   print_history(Employee_details.history);
-  cout << setw(30) <<"12. Additional user attributes" << " : " << endl;
-  print_attributes(Employee_details.attribute,Employee_details.attributevalue);
+  if (Employee_details.attribute.empty())
+    cout << setw(30) <<"12. Additional user attributes" << " : " << "None"<< endl;
+  else
+  {
+    cout << setw(30) <<"12. Additional user attributes" << " : " << endl;
+    Function::print_attributes(Employee_details.attribute,Employee_details.attributevalue);
+  }
   cout << endl;
 }
 
@@ -362,7 +367,7 @@ int Function::edit_details(Details &details)
   int edit_selection;
   string input;
   Function::print_details(details);
-  cout << endl << "Enter numbers 1-11 to change their respective details : ";
+  cout << endl << "Enter numbers 1-12 to change their respective details : ";
   cin >> edit_selection;
   cout << endl;
   while (edit_selection != 0)
@@ -481,6 +486,36 @@ int Function::edit_details(Details &details)
           }
         break;
         }
+      case 12:
+        {
+          int add_or_delete;
+          cout << "Enter 1 to add, 2 to delete : " ;
+          cin >> add_or_delete;
+          cout << endl;
+          if (add_or_delete == 1)
+          {
+            cout << "Enter new attribute : ";
+            cin.ignore();
+            getline(cin,input);
+            cout << endl;
+            (details.attribute).push_back(input);
+            cout << "Enter the corresponding attribute value : ";
+            getline(cin,input);
+            cout << endl;
+            (details.attributevalue).push_back(input);
+          }
+          if (add_or_delete == 2)
+          {
+            int choice;
+            Function::print_attribute_delete(details.attribute,details.attributevalue);
+            cout << "Enter choice to delete : ";
+            cin >> choice;
+            cout << endl;
+            (details.attribute).erase((details.attribute).begin()+choice-1);
+            (details.attributevalue).erase((details.attributevalue).begin()+choice-1);
+          }
+          break;
+        }
       }
 
     if (edit_selection != 2 && edit_selection != 4)
@@ -488,12 +523,13 @@ int Function::edit_details(Details &details)
         Function::print_details(details);
         cout << endl << "Check for the changes." << endl;
         cout << "If you wish to exit, enter 0. " << endl;
-        cout << "Else, enter numbers 1-11 to change their respective details : ";
+        cout << "Else, enter numbers 1-12 to change their respective details : ";
         cin >> edit_selection;
         cout << endl;
         if (edit_selection == 0) return 0;
       }
     }
+  save_details("Employee_Details.txt",Employee_details);
   return 0;
 }
 
@@ -505,7 +541,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   int numberofHistory;
   double salary_input;
 
-  for (int i = 0; i < 11 ; i++)
+  for (int i = 0; i < 12 ; i++)
   {
     switch (i)
     {
@@ -572,10 +608,44 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             cout << "Enter 1 to continue or 0 to exit: " ;
             cin >> continue_choice;
             cout << endl;
+            while (continue_choice != 1 && continue_choice != 0)
+              {
+                cout << "Enter 1 to continue or 0 to exit: " ;
+                cin >> continue_choice;
+                cout << endl;
+              }
           }
           break;
         }
-    }
+      case 11:
+        {
+          int continue_choice = 1;
+          
+          while (continue_choice !=0)
+          {
+            cout << "Enter any additional attributes : " << endl;
+            cin.ignore();
+            getline(cin,input);
+            (buffer.attribute).push_back(input);
+            cout << "Enter the attribute value : " << endl;
+            cin >> input;
+            if ((buffer.attribute.size() > 0) 
+              { Function::print_attribute(buffer.attribute,buffer.attributevalue); }
+            
+            cout << "Enter 1 to continue or 0 to exit: " ;
+            cin >> continue_choice;
+            cout << endl;
+                
+            while (continue_choice != 1 && continue_choice != 0)
+              {
+                cout << "Enter 1 to continue or 0 to exit: " ;
+                cin >> continue_choice;
+                cout << endl;
+              }
+            }
+            break;
+          }
+         
   }
 
   Function::print_details(buffer);
@@ -593,6 +663,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   cout << "Employee details succesfully stored." << endl;
   cout << "Your Employee ID is " << employeeID << endl;
   cout << "Your password is " << Function::store_UserIDpass(UserIDpass,employeeID) << endl;
+  save_details("Employee_Details.txt",Employee_details);
 }
 
 void Function::load_IDpass(string IDpass_filename, vector<IDpass> &UserIDpass)
@@ -659,17 +730,6 @@ void Function::get_Positions(vector<Function::Details> Employee_details,vector<s
     if (count == 0) { Positions.push_back(Employee_details[i].position); }
   }
 }
-  
-
-void Function::addUser_defined_attribute(vector<Function::Details> Employee_details)
-{
-  string attribute;
-  cin >> attribute;
-  for (int i = 0; i < Employee_details.size() ; i++)
-  {
-    for (int j = 0; j < (Employee_details.user_def_attributes).size() ; j++)
-      if ((Employee_details.user_def_attributes)[j].attribute == "")
-      
   
 
 void Function::save_details(string employeeData_filename, vector<Function::Details> Employee_details)
