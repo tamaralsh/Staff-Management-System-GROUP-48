@@ -146,7 +146,7 @@ int main()
         case 6:
         {
           Function::createEmployee(Employee_details);
-
+          Function::save_details("Employee_Details.txt",Employee_details);
           break;
         }
         case 7:
@@ -191,9 +191,6 @@ int main()
             }
           }
           Function::edit_details(Employee_details[i]);
-        }
-        case 9:
-        {
           break;
         }
       }
