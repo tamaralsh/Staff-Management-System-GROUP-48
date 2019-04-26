@@ -151,6 +151,7 @@ int main()
         case 6:
         {
           KPI::showKPIboard(book, KPIfilename);
+          break;
         }
         case 7:
         {
