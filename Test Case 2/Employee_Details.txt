@@ -11,6 +11,7 @@ N/A
 The University of Hong Kong Graduate 2004-2008
 Schneider Electric 2008-2013
 Volvo Cars 2013-2017
+/
 //
 
 Lim Ah Tak
@@ -27,6 +28,7 @@ The University of Hong Kong 2001-2004
 Metlife Insurance 2005-2010
 AIA Insurance 2010-2015
 AIG Insurance 2015-2017
+/
 //
 
 Lai Chee Kok
@@ -42,6 +44,7 @@ Employed
 Chinese University of Hong Kong 2002-2006
 Panasonic 2006-2010
 AIA Insurance 2010-2012
+/
 //
 
 Lam Tak Kin
@@ -57,6 +60,7 @@ Employed
 Polytechnic University of Hong Kong 1995-1999
 Prudential Insurance 2000-2005
 AIG Insurance 2005-2007
+/
 //
 
 Lee Zet Tay
@@ -71,6 +75,7 @@ Employed
 30000
 The University of Hong Kong 1989-1993
 Deloitte 1993-2001
+/
 //
 
 Wong Hock Ooi
@@ -86,6 +91,7 @@ N/A
 Polytechnic University of Hong Kong 1988-1992
 Prudential Insurance 1993-2005
 AIG Insurance 2005-2007
+/
 //
 
 Wong Hock Chuan
@@ -101,6 +107,7 @@ Employed
 The University of Hong Kong Graduate 2000-2004
 Schneider Electric 2004-2008
 Volvo Cars 2008-2015
+/
 //
 
 Sai Tai Han
@@ -116,4 +123,5 @@ Employed
 The University of Hong Kong Graduate 2010-2014
 Schneider Electric 2014-2015
 Mercedes Cars 2015-2017
+/
 //
