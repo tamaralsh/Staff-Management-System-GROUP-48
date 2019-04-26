@@ -167,34 +167,6 @@ string Function::login_page(vector<Function::IDpass> UserIDpass)
 }
 
 
-void Function::delete_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete)
-{
-  string confirmation = "";
-  cout << "Showing all employees with year of birth entered: " << endl;
-  int count = 0;
-  for (int i = 0; i < Employee_details.size(); i++)
-  {
-    if ((Employee_details[i].dateofbirth).substr(6,4) == DOB_yeartodelete)
-    {
-      Function::print_details(Employee_details[i]);
-      count++;
-      cout << "Enter Y to confirm delete, N to cancel: ";
-      cin >> confirmation;
-      cout << endl;
-      if (confirmation == "Y")
-      {
-        Employee_details.erase(Employee_details.begin()+i);
-        i--;
-      }
-      else if (confirmation == "N")
-      {
-        cout << "Cancelled." << endl;
-        continue;
-      }
-    }
-  }
-  if (count == 0) { cout << "There are no employees with the year of birth entered"; }
-}
 
 void Function::print_details(Function::Details Employee_details)
 {
@@ -635,7 +607,7 @@ void Function::add_attribute_toAll(vector<Function::Details> & Employee_details,
 
 void Function::createEmployee(vector<Function::Details> &Employee_details,vector<Function::IDpass> & UserIDpass)
 {
-  string input,employeeID;
+  string input, employeeID;
   int confirmation;
   Details buffer;
   vector<string> buffer_attribute;
@@ -733,7 +705,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             cout << "Enter the attribute value : " << endl;
             cin >> input;
             if (buffer.attribute.size() > 0)
-              { Function::print_attribute(buffer.attribute,buffer.attributevalue); }
+              { Function::print_attributes(buffer.attribute,buffer.attributevalue); }
 
             cout << "Enter 1 to continue or 0 to exit: " ;
             cin >> continue_choice;
@@ -749,6 +721,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             break;
           }
         }
+
   }
 
   Function::print_details(buffer);
@@ -759,7 +732,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   {
     if (confirmation == 1)
     {
-      confirmation = Function::edit_details(buffer);
+      confirmation = Function::edit_details(Employee_details,buffer);
     }
   }
   Employee_details.push_back(buffer);
@@ -770,7 +743,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   cout << "Your password is " << Function::store_UserIDpass(UserIDpass,employeeID) << endl;
 }
 
-void Function::load_IDpass(string IDpass_filename, vector<IDpass> &UserIDpass)
+void Function::load_IDpass(string IDpass_filename, vector<Function::IDpass> &UserIDpass)
 {
   string input;
   IDpass buffer;
@@ -785,7 +758,7 @@ void Function::load_IDpass(string IDpass_filename, vector<IDpass> &UserIDpass)
 
   while (getline(fin,input))
   {
-    if (input=="") continue;
+    if (input == "") continue;
     buffer.employeeID = input;
     getline(fin,input);
     buffer.password = input;
@@ -860,13 +833,14 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
     save << "/" << endl;
     for (int k = 0; k <(Employee_details[i].attribute).size(); k++)
     {
-      save << (Employee_details[i].attribute)[j] << endl;
-      save << (Employee_details[i].attributevalue)[j] << endl;
+      save << (Employee_details[i].attribute)[k] << endl;
+      save << (Employee_details[i].attributevalue)[k] << endl;
     }
     save << "//" << endl << endl;
   }
   save.close();
 }
+
 
 void Function::delete_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete)
 {
@@ -884,12 +858,25 @@ void Function::delete_byAge(vector <Function::Details> &Employee_details, string
       cout << endl;
       if (confirmation == "Y")
       {
-        Function::delete_employee(Employee_details, Employee_details[i].employeeID);
+        Employee_details.erase(Employee_details.begin()+i);
         i--;
       }
       else if (confirmation == "N")
+      {
+        cout << "Cancelled." << endl;
         continue;
+      }
     }
   }
   if (count == 0) { cout << "There are no employees with the year of birth entered"; }
+}
+
+
+void Function::print_attribute_delete(vector<string> attribute, vector<string> attributevalue)
+{
+ int count = 1;
+ for (int i =0; i < attribute.size(); i++)
+ {
+   cout << count++ << ".  " << attribute[i] << " : " << attributevalue[i] << endl;
+ }
 }
