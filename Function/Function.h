@@ -46,7 +46,7 @@ public:
   static void print_history(vector<string> history);
   static void print_history_delete(vector<string> history);
   static string login_page(vector<IDpass> UserIDpass);
-  static void print_details(Details Employee_details);
+  static void print_details(Function::Details Employee_details,string authoritylevel);
   static void load_details(string employeeData_filename, vector <Details> &Employee_details);
   static void search_bySalary(double salary, vector<Details> Employee_details,string high_or_low);
   static int delete_employee(vector<Details> &Employee_details, string employeeID);
