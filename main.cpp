@@ -129,6 +129,7 @@ int main()
           cin >> yearofBirth;
           cout << endl;
           Function::search_byAge(yearofBirth,Employee_details);          
+          break;
         }
         
         case 4:
@@ -141,6 +142,7 @@ int main()
           cout << "Enter H for high and L for low: ";
           cin >> high_or_low;
           Function::search_bySalary(salary,Employee_details,high_or_low);
+          break;
         }
         case 5:
         {
