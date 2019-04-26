@@ -66,6 +66,7 @@ public:
   static void addUser_defined_attribute(vector<Details> & Employee_details, string attribute);
   static void print_attributes(vector<string> attribute, vector<string> attributevalue);
   static void print_attribute_delete(vector<string> attribute, vector<string> attributevalue);
+  static void delete_byAge(vector <Details> &Employee_details, string DOB_yeartodelete)
   
 
 };
