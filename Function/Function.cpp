@@ -1,4 +1,4 @@
-#include <iostream>
+`#include <iostream>
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -30,7 +30,8 @@ void Function::addUserAttribute(vector<Function::Details> & Employee_details, st
 
 void Function::delete_byPositions(vector<string> Positions, vector <Function::Details> Employee_details)
 {
-  int position_number;
+  int position_number,count;
+  string confirmation;
   for (int i = 0; i < Positions.size(); i++)
   {
     cout << i+1 << "  " << Positions[i] << endl;
@@ -42,7 +43,20 @@ void Function::delete_byPositions(vector<string> Positions, vector <Function::De
   {
     if (Employee_details[i].position == Positions[position_number-1])
     {
-      Function::delete_employee(Employee_details,Employee_details[i].employeeID);
+      Function::print_details(Employee_details[i]);
+      cout << "Enter Y to confirm, N to cancel : ";
+      cin >> confirmation;
+      count++;
+      if (confirmation == "Y")
+      {
+        Employee_details.erase(Employee_details.begin()+i);
+        i--;
+      }
+      else 
+      {
+        cout << "Cancelled" << endl;
+        continue;
+      }
     }
   }
 }
@@ -170,11 +184,14 @@ void Function::delete_byAge(vector <Function::Details> &Employee_details, string
       cout << endl;
       if (confirmation == "Y")
       {
-        Function::delete_employee(Employee_details, Employee_details[i].employeeID);
+        Employee_details.erase(Employee_details.begin()+i);
         i--;
       }
       else if (confirmation == "N")
+      {
+        cout << "Cancelled." << endl;
         continue;
+      }
     }
   }
   if (count == 0) { cout << "There are no employees with the year of birth entered"; }
@@ -304,13 +321,42 @@ void Function::search_bySalary(double salary, vector<Function::Details> Employee
   }
 }
 
-int Function::delete_employee(vector<Function::Details> &Employee_details, string employeeID)
+int Function::delete_byEmployeeID(vector<Function::Details> &Employee_details, string employeeID)
 {
   int count = 0;
   string confirmation;
   for (int i = 0; i < Employee_details.size(); i ++)
   {
     if (employeeID == Employee_details[i].employeeID)
+    {
+      Function::print_details(Employee_details[i];
+      cout << "Enter Y to confirm, N to cancel";
+      cin >> confirmation;
+      cout << endl;
+      if (confirmation == "Y")
+      {
+        Employee_details.erase(Employee_details.begin()+i);
+        count++;
+        cout << "Employee details are successfully deleted." << endl;
+      }
+      else if (confirmation == "N")
+      {
+        cout << "Cancelled." << endl;
+        continue;
+      }
+    }
+  }
+  if (count == 0) { return -1; }
+  return 0;
+}
+
+int Function::delete_byName(vector<Function::Details> &Employee_details, string name)
+{
+  int count = 0;
+  string confirmation;
+  for (int i = 0; i < Employee_details.size(); i ++)
+  {
+    if (name == Employee_details[i].name)
     {
       Function::print_details(Employee_details[i];
       cout << "Enter Y to confirm, N to cancel";
