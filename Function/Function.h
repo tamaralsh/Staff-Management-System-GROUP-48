@@ -63,7 +63,10 @@ public:
   static void save_UserIDpass(vector<IDpass> UserIDpass,string UserIDpass_filename);
   static string store_UserIDpass(vector<IDpass> & UserIDpass, string employeeID);
   static string password_randomizer();
-  static void addUser_defined_attribute(string attribute, vector<Details> Employee_detals);
+  static void addUser_defined_attribute(vector<Details> & Employee_details, string attribute);
+  static void print_attributes(vector<string> attribute, vector<string> attributevalue);
+  static void print_attribute_delete(vector<string> attribute, vector<string> attributevalue);
+  
 
 };
 
