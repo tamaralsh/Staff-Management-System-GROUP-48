@@ -783,6 +783,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   cout << "Employee details succesfully stored." << endl;
   cout << "Your Employee ID is " << employeeID << endl;
   cout << "Your password is " << Function::store_UserIDpass(UserIDpass,employeeID) << endl;
+  save_details("Employee_Details.txt",Employee_details);
 }
 
 void Function::load_IDpass(string IDpass_filename, vector<Function::IDpass> &UserIDpass)
