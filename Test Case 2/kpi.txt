@@ -1,0 +1,27 @@
+Lee Tak Wah
+200001
+24 45 2 3 10
+
+Lim Ah Tak
+100001
+20 30 8 6 5
+
+Lai Chee Kok
+100003
+24 50 10 5 10
+
+Lee Zet Tay
+100004
+25 50 10 5 10
+
+Wong Hock Ooi
+200002
+19 14 5 5 9
+
+Wong Hock Chuan
+200003
+15 38 9 1 9
+
+Sai Tai Han
+200004
+20 25 5 5 3
