@@ -180,10 +180,7 @@ void Function::print_details(Function::Details Employee_details)
   cout << setw(30) <<"7.  Email" << " : " << Employee_details.email << endl;
   cout << setw(30) <<"8.  Status" << " : " << Employee_details.status << endl;
   cout << setw(30) <<"9.  Attendance" << " : " << Employee_details.attendance << endl;
-  if (Employee_details.employeeID[0] == 2)
-    { cout << setw(30) <<"10. Salary" << " : $" << Employee_details.salary << endl; }
-  else if (Employee_details.employeeID[0]  == 1)
-    { cout << setw(30) <<"10. Salary" << " : You are not authorized to view this. " << endl;}
+  cout << setw(30) <<"10. Salary" << " : $" << Employee_details.salary << endl;
   cout << setw(30) <<"11. Education and work history" << " : " << endl;
   Function::print_history(Employee_details.history);
   if (Employee_details.attribute.empty())
@@ -812,7 +809,7 @@ string Function::show_Positions(vector<string> Positions)
   int position_number;
   for (int i = 0; i < Positions.size(); i++)
   {
-    cout << i+1 << "  " << Positions[i] << endl;
+    cout << i+1 << ".  " << Positions[i] << endl;
   }
   cout << "Enter choice of position to search : ";
   cin >> position_number;
