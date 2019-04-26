@@ -154,8 +154,7 @@ int main()
         }
         case 7:
         {
-          Function::createEmployee(Employee_details);
-
+          Function::createEmployee(Employee_details,UserIDpass);
           break;
         }
         case 8:
