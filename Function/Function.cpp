@@ -307,13 +307,26 @@ void Function::search_bySalary(double salary, vector<Function::Details> Employee
 int Function::delete_employee(vector<Function::Details> &Employee_details, string employeeID)
 {
   int count = 0;
+  string confirmation;
   for (int i = 0; i < Employee_details.size(); i ++)
   {
     if (employeeID == Employee_details[i].employeeID)
     {
-      Employee_details.erase(Employee_details.begin()+i);
-      count++;
-      cout << "Employee details are successfully deleted." << endl;
+      Function::print_details(Employee_details[i];
+      cout << "Enter Y to confirm, N to cancel";
+      cin >> confirmation;
+      cout << endl;
+      if (confirmation == Y)
+      {
+        Employee_details.erase(Employee_details.begin()+i);
+        count++;
+        cout << "Employee details are successfully deleted." << endl;
+      }
+      else if (confirmation == N)
+      {
+        cout << "Cancelled." << endl;
+        continue;
+      }
     }
   }
   if (count == 0) { return -1; }
