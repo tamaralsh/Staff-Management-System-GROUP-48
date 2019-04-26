@@ -292,6 +292,16 @@ void Function::load_details(string employeeData_filename, vector <Function::Deta
   fin.close();
 }
 
+void Function::search_byAge(string yeaRofBirth, vector<Function::Details> Employee_details)
+{
+  for (int i = 0; i < Employee_details ; i++)
+  {
+    if ((Employee_details[i].dateofbirth).substr(6,4) == yeaRofBirth)
+    {
+      Function::print_details(Employee_details[i]);
+    }
+  }
+}
 
 void Function::search_bySalary(double salary, vector<Function::Details> Employee_details,string high_or_low)
 {
