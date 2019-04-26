@@ -70,6 +70,7 @@ public:
   static void delete_byPositions(vector<string> Positions, vector <Details> Employee_details);
   static void delete_byEmployeeID(vector<Details> &Employee_details, string employeeID);
   static void delete_byName(vector<Details> &Employee_details, string name);
+  static void addUserAttribute(vector<Details> & Employee_details, string attribute);
   
 
 };
