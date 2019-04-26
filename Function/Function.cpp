@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int Function::employeeID_search(string employeeID, vector<IDpass> UserIDpass)
+int Function::employeeID_search(string employeeID, vector<Function::IDpass> UserIDpass)
 {
   for (int i = 0; i < UserIDpass.size(); i++)
   {
@@ -19,7 +19,7 @@ int Function::employeeID_search(string employeeID, vector<IDpass> UserIDpass)
   return -1;
 }
 
-void Function::addUserAttribute(vector<Details> & Employee_details, string attribute)
+void Function::addUserAttribute(vector<Function::Details> & Employee_details, string attribute)
 {
   for (int i = 0; i < Employee_details.size(); i++)
   {
@@ -56,7 +56,7 @@ void Function::print_attributes(vector<string> attribute, vector<string> attribu
   }
 }
 
-bool Function::IDpass_check(int i, vector<IDpass> UserIDpass, string password)
+bool Function::IDpass_check(int i, vector<Function::IDpass> UserIDpass, string password)
 {
   if (UserIDpass[i].password == password) { return true; }
   else { return false; }
@@ -87,7 +87,7 @@ string Function::password_randomizer()
 }
 
 
-string Function::store_UserIDpass(vector<IDpass> & UserIDpass, string employeeID)
+string Function::store_UserIDpass(vector<Function::IDpass> & UserIDpass, string employeeID)
 {
   string password = password_randomizer();
   IDpass newUser;
@@ -98,7 +98,7 @@ string Function::store_UserIDpass(vector<IDpass> & UserIDpass, string employeeID
   return password;
 }
 
-void Function::save_UserIDpass(vector<IDpass> UserIDpass,string UserIDpass_filename)
+void Function::save_UserIDpass(vector<Function::IDpass> UserIDpass,string UserIDpass_filename)
 {
   ofstream fout;
   fout.open(UserIDpass_filename);
@@ -121,7 +121,7 @@ void Function::print_history_delete(vector<string> history)
   }
 }
 // login page //
-string Function::login_page(vector<IDpass> UserIDpass)
+string Function::login_page(vector<Function::IDpass> UserIDpass)
 {
   string employeeID,password,authoritylevel;
   int i;
@@ -154,7 +154,7 @@ string Function::login_page(vector<IDpass> UserIDpass)
 }
 
 
-void Function::search_byAge(vector <Details> &Employee_details, string DOB_yeartodelete)
+void Function::search_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete)
 {
   string confirmation = "";
   cout << "Showing all employees with year of birth entered: " << endl;
@@ -209,7 +209,7 @@ void Function::print_details(Function::Details Employee_details,string authority
 }
 
 
-void Function::load_details(string employeeData_filename, vector <Details> &Employee_details)
+void Function::load_details(string employeeData_filename, vector <Function::Details> &Employee_details)
 {
   string input;
   Details buffer;
@@ -279,7 +279,7 @@ void Function::load_details(string employeeData_filename, vector <Details> &Empl
 }
 
 
-void Function::search_bySalary(double salary, vector<Details> Employee_details,string high_or_low)
+void Function::search_bySalary(double salary, vector<Function::Details> Employee_details,string high_or_low)
 {
   for (int i = 0; i < Employee_details.size(); i++)
   {
@@ -304,7 +304,7 @@ void Function::search_bySalary(double salary, vector<Details> Employee_details,s
   }
 }
 
-int Function::delete_employee(vector<Details> &Employee_details, string employeeID)
+int Function::delete_employee(vector<Function::Details> &Employee_details, string employeeID)
 {
   int count = 0;
   for (int i = 0; i < Employee_details.size(); i ++)
@@ -320,7 +320,7 @@ int Function::delete_employee(vector<Details> &Employee_details, string employee
   return 0;
 }
 
-int Function::search_byName(string name, vector<Details> Employee_details)
+int Function::search_byName(string name, vector<Function::Details> Employee_details)
 {
   int count = 0;
   for (int i = 0; i < Employee_details.size(); i++)
@@ -333,7 +333,7 @@ int Function::search_byName(string name, vector<Details> Employee_details)
   return 0;
 }
 
-int Function::search_byEmployeeID(string employee_ID, vector<Details> Employee_details)
+int Function::search_byEmployeeID(string employee_ID, vector<Function::Details> Employee_details)
 {
   int count = 0;
   for (int i = 0; i < Employee_details.size(); i++)
@@ -346,7 +346,7 @@ int Function::search_byEmployeeID(string employee_ID, vector<Details> Employee_d
   return 0;
 }
 
-string Function::largestEmployeeID(vector<Details> Employee_details,string authority)
+string Function::largestEmployeeID(vector<Function::Details> Employee_details,string authority)
 {
   string max = "000000",authoritycheck;
   int buffer;
@@ -382,7 +382,7 @@ string Function::largestEmployeeID(vector<Details> Employee_details,string autho
 }
 
 
-int Function::edit_details(Details &details)
+int Function::edit_details(Function::Details &details)
 {
   int edit_selection;
   string input;
@@ -782,7 +782,7 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
   save.close();
 }
 
-void Function::delete_byAge(vector <Details> &Employee_details, string DOB_yeartodelete)
+void Function::delete_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete)
 {
   string confirmation = "";
   cout << "Showing all employees with year of birth entered: " << endl;
