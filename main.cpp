@@ -146,27 +146,44 @@ int main()
         case 6:
         {
           Function::createEmployee(Employee_details);
-          Function::save_details("Employee_Details.txt",Employee_details);
+
           break;
         }
         case 7:
         {
-          string employeeID;
-          cout << "Enter the employee ID to delete: ";
-          cin >> employeeID;
+          string choice;
+          cout << "Choose the attribute for searching to delete" << endl;
+          cout << "Enter 'N' for name, 'E' for employee ID, 'A' for age, 'R' for role/position : ";
+          cin >> choice;
           cout << endl;
-          int i = Function::delete_employee(Employee_details,employeeID);
-          if (i == -1)
+          if (choice == "N")
           {
-            while (i == -1)
-            {
-              cout << "There is no record of the employee ID entered." << endl;
-              cout << "Please enter a valid employee ID or enter 0 to exit: ";
-              cin >> employeeID;
-              if (employeeID == "0") { continue_choice = 2; break; }
-              cout << endl;
-              i = Function::delete_employee(Employee_details,employeeID);
-            }
+            string name;
+            cout << "Enter the name to delete: ";
+            cin >> name;
+            cout << endl;
+            Function::delete_byName(Employee_details, name);
+          }
+          if (choice == "E")
+          {
+            string employeeID;
+            cout << "Enter the employee ID to delete: ";
+            cin >> employeeID;
+            cout << endl;
+            Function::delete_byEmployeeID(Employee_details, employeeID);
+          }
+          if (choice == "A")
+          {
+            string age;
+            cout << "Enter the year of birth to delete: ";
+            cin >>age;
+            cout << endl;
+            Function::delete_byAge(Employee_details,age);
+          }
+          if (choice == "R")
+          {
+            Function::delete_byPositions(Positions, Employee_details);
+            Function::get_Positions(Employee_details,Positions);
           }
           break;
         }
@@ -177,6 +194,7 @@ int main()
           cout << "Enter the employee ID to edit: ";
           cin >> employeeID;
           cout << endl;
+          
           int i = Function::search_byEmployeeID(employeeID,Employee_details);
           if (i == -1)
           {
