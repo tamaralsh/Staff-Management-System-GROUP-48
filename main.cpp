@@ -48,7 +48,7 @@ int main()
   cout << endl;
 
   // Initialize //
-  const string KPIfilename = "kpi,txt", employeeData_filename = "Employee_Details.txt";
+  const string KPIfilename = "kpi.txt", employeeData_filename = "Employee_Details.txt";
   string IDpass_filename = "UserIDpass.txt";
   vector<KPI::Record> book;
 
