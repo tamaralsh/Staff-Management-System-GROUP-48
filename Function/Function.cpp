@@ -635,7 +635,7 @@ void Function::add_attribute_toAll(vector<Function::Details> & Employee_details,
 
 void Function::createEmployee(vector<Function::Details> &Employee_details,vector<Function::IDpass> & UserIDpass)
 {
-  string input;
+  string input,employeeID;
   int confirmation;
   Details buffer;
   vector<string> buffer_attribute;
@@ -655,7 +655,8 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
       case 1:
         cout << "Employee authority, H = high, N = normal" << ": ";
         cin >> input;
-        buffer.employeeID = Function::largestEmployeeID(Employee_details,input);
+        employeeID = Function::largestEmployeeID(Employee_details,input);
+        buffer.employeeID = employeeID;
         break;
       case 2:
         cout << "Date of birth (dd/mm/yyyy)" << " : ";
@@ -747,7 +748,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             }
             break;
           }
-
+        }
   }
 
   Function::print_details(buffer);
@@ -861,6 +862,7 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
     {
       save << (Employee_details[i].attribute)[j] << endl;
       save << (Employee_details[i].attributevalue)[j] << endl;
+    }
     save << "//" << endl << endl;
   }
   save.close();
