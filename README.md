@@ -63,6 +63,7 @@ to run the program.
 Output messages of instructions will be shown in the screen along with the flow of the program.
 
 Using files from Test Case 1:
+
 To test the the high authority staff management system, use _**employee ID : 200001, password : abcdefg123**_ to login.
 To test the basic staff management system, use _**employee ID : 100001, password : cdefghi456**_ to login.
 
