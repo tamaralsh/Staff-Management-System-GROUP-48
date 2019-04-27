@@ -743,8 +743,11 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             cin.ignore();
             getline(cin,input);
             (buffer.history).push_back(input);
-            if ((buffer.history).size() > 0) { Function::print_history(buffer.history); }
-
+            if ((buffer.history).size() > 0) 
+            { 
+              cout << "History details added : " << endl;
+              Function::print_history(buffer.history); 
+            }
             cout << endl << "Enter 1 to continue or 0 to exit: " ;
             cin >> continue_choice;
             cout << endl;
@@ -772,8 +775,11 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             cin >> input;
             (buffer.attributevalue).push_back(input);
             if (buffer.attribute.size() > 0)
-              { Function::print_attributes(buffer.attribute,buffer.attributevalue); }
-
+            { 
+              cout << "Additional attributes added : " << endl;
+              Function::print_attributes(buffer.attribute,buffer.attributevalue);
+            }
+            
             cout << "Enter 1 to continue or 0 to exit: " ;
             cin >> continue_choice;
             cout << endl;
