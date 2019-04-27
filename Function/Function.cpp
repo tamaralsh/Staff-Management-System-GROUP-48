@@ -80,6 +80,7 @@ bool Function::IDpass_check(int i, vector<Function::IDpass> UserIDpass, string p
   else { return false; }
 }
 
+// print education and work history //
 void Function::print_history(vector<string> history)
 {
   for (int i = 0; i < history.size(); i++)
@@ -432,7 +433,7 @@ int Function::search_byEmployeeID(string employee_ID, vector<Function::Details> 
   return 0;
 }
 
-// Returns the maximum/largest employee ID //
+// Returns the maximum/largest employee ID to assign it to a newly created account //
 string Function::largestEmployeeID(vector<Function::Details> Employee_details,string authority)
 {
   string max = "000000",authoritycheck;
@@ -885,7 +886,7 @@ void Function::search_byPosition(string Position,vector<Function::Details> Emplo
   }
 }
 
-// Get the role/position of the employee - for purpose of choice selection //
+// Collects all role/position of the employee for print_history function //
 void Function::get_Positions(vector<Function::Details> Employee_details,vector<string> &Positions)
 {
   for (int i = 0; i < Employee_details.size(); i++)
