@@ -36,4 +36,4 @@ To compile this program, type _make file_ in the terminal in a Linux environment
 
 ## Contributors
 - Tamara Lee Su Hui [3035548922]
-- Lam Zi Hao []
+- Lam Zi Hao [3035549146]
