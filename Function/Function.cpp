@@ -61,7 +61,7 @@ void Function::delete_byPositions(vector<string> Positions, vector <Function::De
       }
     }
   }
-  Function::save_details("Employee_details.txt",Employee_details);
+  Function::save_details("Employee_Details.txt",Employee_details);
 }
 
 // Print added attributes //
@@ -368,7 +368,7 @@ int Function::delete_byEmployeeID(vector<Function::Details> &Employee_details, s
       }
     }
   }
-  Function::save_details("Employee_details.txt",Employee_details);
+  Function::save_details("Employee_Details.txt",Employee_details);
   if (count == 0) { cout << "There is no employee with the employee ID entered."; }
   return 0;
 }
@@ -399,7 +399,7 @@ int Function::delete_byName(vector<Function::Details> &Employee_details, string 
       }
     }
   }
-  Function::save_details("Employee_details.txt",Employee_details);
+  Function::save_details("Employee_Details.txt",Employee_details);
   if (count == 0) { cout << "There are no employees with the name entered."; }
   return 0;
 }
@@ -962,7 +962,7 @@ void Function::delete_byAge(vector <Function::Details> &Employee_details, string
       }
     }
   }
-  save_details("Employee_details.txt",Employee_details);
+  save_details("Employee_Details.txt",Employee_details);
   if (count == 0) { cout << "There are no employees with the year of birth entered"; }
 }
 
