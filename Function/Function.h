@@ -68,7 +68,7 @@ public:
   static void addUserAttribute(vector<Details> & Employee_details, string attribute);
   static void add_attribute_toAll(vector<Details> & Employee_details, string attribute);
   static void search_byAge(string yeaRofBirth,vector<Details> Employee_details);
-
+  static int add_attribute_toNew_employee(vector<string> attribute,Details & buffer);
 
 };
 
