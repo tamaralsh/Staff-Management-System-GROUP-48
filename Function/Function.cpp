@@ -303,25 +303,26 @@ void Function::search_byAge(string yeaRofBirth, vector<Function::Details> Employ
 void Function::search_bySalary(double salary, vector<Function::Details> Employee_details,string high_or_low)
 {
   int count = 0;
+  cout << left;
   for (int i = 0; i < Employee_details.size(); i++)
   {
     if (high_or_low == "L") //if lower
     {
       if (Employee_details[i].salary < salary) {
-        count++;
-        cout << Employee_details[i].name << endl;
-        cout << Employee_details[i].employeeID << endl;
-        cout << Employee_details[i].salary << endl;
+        cout << ++count << "." << endl;
+        cout << setw(15) << "Name" << " : " << Employee_details[i].name << endl;
+        cout << setw(15) << "Employee ID" << " : " << Employee_details[i].employeeID << endl;
+        cout << setw(15) << "Salary" << " : " << Employee_details[i].salary << endl;
         cout << endl;
       }
     }
     else if (high_or_low ==  "H") // if higher
     {
       if (Employee_details[i].salary > salary) {
-        count++;
-        cout << Employee_details[i].name << endl;
-        cout << Employee_details[i].employeeID << endl;
-        cout << Employee_details[i].salary << endl;
+        cout << ++count << "." << endl;
+        cout << setw(15) << "Name" << " : " << Employee_details[i].name << endl;
+        cout << setw(15) << "Employee ID" << " : " << Employee_details[i].employeeID << endl;
+        cout << setw(15) << "Salary" << " : " << Employee_details[i].salary << endl;
         cout << endl;
       }
     }
