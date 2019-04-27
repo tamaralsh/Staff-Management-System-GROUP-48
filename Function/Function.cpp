@@ -401,6 +401,7 @@ int Function::delete_byName(vector<Function::Details> &Employee_details, string 
   return 0;
 }
 
+// Search for employee by name //
 int Function::search_byName(string name, vector<Function::Details> Employee_details)
 {
   int count = 0;
