@@ -198,7 +198,6 @@ int main()
             Function::get_Positions(Employee_details,Positions);
             break;
           }
-          Function::save_details("Employee_Details.txt",Employee_details);
           break;
         }
         case 9:
