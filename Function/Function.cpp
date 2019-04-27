@@ -613,7 +613,12 @@ int Function::edit_details(vector<Function::Details>Employee_details, Function::
           break;
         }
       }
-
+    if (edit_selection == 2 || edit_selection == 4)
+    {
+      cout << endl << "Enter, numbers 1-12 to change their respective details." << endl;
+      cout << "Or if you wish to exit, enter 0 : ";
+      cin >> edit_selection;
+      cout << endl;
     if (edit_selection != 2 && edit_selection != 4)
       {
         Function::print_details(details);
@@ -622,11 +627,15 @@ int Function::edit_details(vector<Function::Details>Employee_details, Function::
         cout << "Else, enter numbers 1-12 to change their respective details : ";
         cin >> edit_selection;
         cout << endl;
-        if (edit_selection == 0) return 0;
+        
       }
     }
-  save_details("Employee_Details.txt",Employee_details);
-  return 0;
+  if (edit_selection == 0) 
+  {
+    save_details("Employee_Details.txt",Employee_details);
+    return 0;
+  }
+ return 0;
 }
 
 void Function::add_attribute_toAll(vector<Function::Details> & Employee_details, string attribute)
