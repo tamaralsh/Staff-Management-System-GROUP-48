@@ -241,7 +241,7 @@ int main()
       {
         if (selection == 6) 
         { 
-          cout << "Enter 1 to go return to the menu. ";
+          cout << "Enter 1 to return to the menu. ";
           cin >> continue_choice;
           if (continue_choice == 1) { continue_choice = 2; }
         }
