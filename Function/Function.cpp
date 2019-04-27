@@ -112,7 +112,7 @@ string Function::store_UserIDpass(vector<Function::IDpass> & UserIDpass, string 
   newUser.employeeID = employeeID;
   newUser.password = password;
   UserIDpass.push_back(newUser);
-
+  Function::save_UserIDpass(UserIDpass,"UserIDpass.txt")
   return password;
 }
 
