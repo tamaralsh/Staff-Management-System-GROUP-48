@@ -577,7 +577,7 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
       case 12:
         {
           int add_or_delete;
-          cout << "Enter 1 to add, 2 to delete : " ;
+          cout << "Enter 1 to add, 2 to delete, 3 to edit attribute value : " ;
           cin >> add_or_delete;
           cout << endl;
           if (add_or_delete == 1)
@@ -596,10 +596,14 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
           if (add_or_delete == 2)
           {
             int choice;
-            if ((details.attribute).empty()) { cout << "There are no attributes to be deleted"; break; }
+            if ((details.attribute).empty()) 
+            { 
+              cout << "There are currently no attributes to be deleted"; 
+              break; 
+            }
             Function::print_attribute_delete(details.attribute,details.attributevalue);
             cout << "WARNING: Deleting this attribute deletes the similar attribute for all employees" << endl;
-            cout << "Enter choice to delete or enter 0 to exit : ";
+            cout << "Enter choice of attribute to delete or enter 0 to exit : ";
             cin >> choice;
             cout << endl;
             if (choice == 0)
@@ -610,6 +614,23 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
               (Employee_details[i].attributevalue).erase((Employee_details[i].attributevalue).begin()+choice-1);
             }
           }
+          if (add_or_delete == 3)
+          {
+            int choice;
+            string newvalue;
+            if ((details.atribute).empty())
+            { 
+              cout << "There are currently no attributes to be deleted" << endl; 
+              break;
+            }
+            Function::print_attribute_delete(details.attribute,details.attributevalue);
+            cout << "Enter choice of attribute value to edit : ";
+            cin >> choice;
+            cout << endl;
+            cout << "Enter new attribute value : ";
+            cin >> newvalue;
+            cout << endl;
+            (Employee_details[i].attributevalue)[choice-1] = newvalue;
           break;
         }
       }
@@ -743,9 +764,11 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             cout << "Enter any additional attributes : " << endl;
             cin.ignore();
             getline(cin,input);
+            (buffer.attribute).push_back(input);
             add_attribute_toAll(Employee_details,input);
             cout << "Enter the attribute value : " << endl;
             cin >> input;
+            (buffer.attributevalue).push_back(input);
             if (buffer.attribute.size() > 0)
               { Function::print_attributes(buffer.attribute,buffer.attributevalue); }
 
