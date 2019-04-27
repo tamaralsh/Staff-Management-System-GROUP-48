@@ -67,7 +67,7 @@ Using files from Test Case 1:
 To test the the high authority staff management system, use _**employee ID : 200001, password : abcdefg123**_ to login.
 To test the basic staff management system, use _**employee ID : 100001, password : cdefghi456**_ to login.
 
-The format of input when using **Create Employee function and Edit Employee function** are as follows:
+The format of input when using **Create Employee function** and **Edit Employee function** are as follows:
 
 - Name (Any alphanumeric letters)
 - Employee Authority (Either 'H' for high, 'L' for low)
