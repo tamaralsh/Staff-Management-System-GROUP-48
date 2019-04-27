@@ -8,6 +8,7 @@
 #include <vector>
 #include <algorithm>
 #include <iomanip>
+#include "kpi.h"
 
 using namespace std;
 
@@ -49,7 +50,7 @@ public:
   static int search_byEmployeeID(string employee_ID, vector<Details> Employee_details);
   static string largestEmployeeID(vector<Details> Employee_details,string authority);
   static int edit_details(vector<Details>&Employee_details, Details &details);
-  static void createEmployee(vector<Details> &Employee_details, vector<IDpass> &UserIDpass);
+  static void createEmployee(vector<Details> &Employee_details, vector<IDpass> &UserIDpass, vector<KPI::Record> &book);
   static void load_IDpass(string IDpass_filename, vector<IDpass> &UserIDpass);
   static string show_Positions(vector<string> Positions);
   static void search_byPosition(string Position,vector<Details> Employee_details);
@@ -69,6 +70,7 @@ public:
   static void add_attribute_toAll(vector<Details> & Employee_details, string attribute);
   static void search_byAge(string yeaRofBirth,vector<Details> Employee_details);
   static int add_attribute_toNew_employee(vector<string> attribute,Details & buffer);
+  static void save_KPI(vector<KPI::Record> book);
 
 };
 
