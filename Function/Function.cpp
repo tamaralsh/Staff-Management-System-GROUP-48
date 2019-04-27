@@ -604,6 +604,8 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
             cout << "Enter new attribute : " << endl;
             cin.ignore();
             getline(cin,input);
+            (details.attribute).pop_back();
+            (details.attribute).push_back(input);
             add_attribute_toAll(Employee_details,input);
             cout << "Enter the corresponding attribute value : ";
             getline(cin,input);
