@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Search for employee ID //
 int Function::employeeID_search(string employeeID, vector<Function::IDpass> UserIDpass)
 {
   for (int i = 0; i < UserIDpass.size(); i++)
@@ -18,6 +19,7 @@ int Function::employeeID_search(string employeeID, vector<Function::IDpass> User
   return -1;
 }
 
+// Add attribute to vector //
 void Function::addUserAttribute(vector<Function::Details> & Employee_details, string attribute)
 {
   for (int i = 0; i < Employee_details.size(); i++)
@@ -27,6 +29,7 @@ void Function::addUserAttribute(vector<Function::Details> & Employee_details, st
   }
 }
 
+// Delete employee by role/position //
 void Function::delete_byPositions(vector<string> Positions, vector <Function::Details> Employee_details)
 {
   int position_number,count;
@@ -60,7 +63,7 @@ void Function::delete_byPositions(vector<string> Positions, vector <Function::De
   }
 }
 
-
+// Print added attributes //
 void Function::print_attributes(vector<string> attribute, vector<string> attributevalue)
 {
   for (int i = 0; i < attribute.size(); i++)
