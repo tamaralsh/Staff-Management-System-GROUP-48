@@ -619,6 +619,7 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
       cout << "Or if you wish to exit, enter 0 : ";
       cin >> edit_selection;
       cout << endl;
+    }
     if (edit_selection != 2 && edit_selection != 4)
       {
         Function::print_details(details);
