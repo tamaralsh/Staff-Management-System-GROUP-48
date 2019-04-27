@@ -234,11 +234,20 @@ int main()
       }
       else
       {
-        cout << endl << "1. Continue" << endl;
-        cout << "2. Back to menu" << endl;
-        cout << "Enter choice : ";
-        cin >> continue_choice;
-        cout << endl;
+        if (edit_selection == 6) 
+        { 
+          cout << "Enter 1 to go back to menu";
+          cin >> continue_choice;
+          if (continue_choice == 1) { continue_choice = 2; }
+        }
+        else 
+        {
+          cout << endl << "1. Continue" << endl;
+          cout << "2. Back to menu" << endl;
+          cout << "Enter choice : ";
+          cin >> continue_choice;
+          cout << endl;
+        }
 
         if (continue_choice == 2)
         {
