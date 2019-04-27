@@ -141,7 +141,7 @@ void Function::print_history_delete(vector<string> history)
   }
 }
 
-// login page //
+// Login page - to enter ID and password //
 string Function::login_page(vector<Function::IDpass> UserIDpass)
 {
   string employeeID,password,authoritylevel;
@@ -174,8 +174,7 @@ string Function::login_page(vector<Function::IDpass> UserIDpass)
   return authoritylevel;
 }
 
-
-
+// Prints details //
 void Function::print_details(Function::Details Employee_details)
 {
   cout << left;
@@ -201,6 +200,7 @@ void Function::print_details(Function::Details Employee_details)
   cout << endl;
 }
 
+// Collects data (employee information) from Employee_Details.txt file //
 void Function::load_details(string employeeData_filename, vector <Function::Details> &Employee_details)
 {
   string input;
@@ -294,6 +294,7 @@ void Function::load_details(string employeeData_filename, vector <Function::Deta
   fin.close();
 }
 
+// Search for employee by age //
 void Function::search_byAge(string yeaRofBirth, vector<Function::Details> Employee_details)
 {
   int count = 0;
@@ -308,6 +309,7 @@ void Function::search_byAge(string yeaRofBirth, vector<Function::Details> Employ
   if (count == 0) { cout << "There are no employees with year of birth entered" << endl; }
 }
 
+// Search for employee by salary //
 void Function::search_bySalary(double salary, vector<Function::Details> Employee_details,string high_or_low)
 {
   int count = 0;
