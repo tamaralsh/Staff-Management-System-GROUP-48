@@ -614,7 +614,7 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
             int choice;
             if ((details.attribute).empty()) 
             { 
-              cout << "There are currently no attributes to be deleted"; 
+              cout << "There are currently no attributes to be deleted." << endl; 
               break; 
             }
             Function::print_attribute_delete(details.attribute,details.attributevalue);
@@ -636,14 +636,14 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
             string newvalue;
             if ((details.attribute).empty())
             { 
-              cout << "There are currently no attributes to be deleted" << endl; 
+              cout << "There are currently no attributes to be edited." << endl; 
               break;
             }
             Function::print_attribute_delete(details.attribute,details.attributevalue);
-            cout << "Enter choice of attribute value to edit : ";
+            cout << "Enter choice of attribute value to edit: ";
             cin >> choice;
             cout << endl;
-            cout << "Enter new attribute value : ";
+            cout << "Enter new attribute value: ";
             cin >> newvalue;
             cout << endl;
             (details.attributevalue)[choice-1] = newvalue;
