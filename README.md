@@ -35,7 +35,7 @@ Hence, a staff management system that works as a database to record information 
 ## General Instructions
 ### Requisites
 This program is a C++11 standard program. It will run in a C++11 standard compiler i.e., Atom in a Ubuntu Linux environment.
-### Input and output specifications
+### Output specifications
 Input files **must be named** _**"Employee_Details.txt"**_ (contains employee details in the order of: name, employee ID, date of birth, time joined the company, position/role, contact number, email, status, attendance, education/work history, additional attributes), _**"UserIDpass.txt"**_ (stores all the employee IDs and passwords) and _**"kpi.txt"**_ (stores KPI information).
 
 In the _**"Employee_Details.txt"**_ file, a '//' is written at the end of an employee's information to distinguish information between different employees.
@@ -45,7 +45,23 @@ If any employee information is updated, the newly updated information will be ou
 ### Compilation and execution instructions
 To compile this program, type _make file_ in the terminal in a Linux environment. Once the compilation is successful, type _./main_ to run the program.
 
-Output messages of instructions will be shown in the screen along with the flow of the program. **Follow strictly to the instructions given as entering words which are not in the options might cause the program to work inaccurately.**
+Output messages of instructions will be shown in the screen along with the flow of the program.
+
+The format of input when using **Create Employee function and Edit Employee function** are as follows:
+- Name (Any alphanumeric letters)
+- Employee Authority (Either H for high, L for low)
+- Date of birth (DD/MM/YYYY)
+- Joining time (MM/YYYY)
+- Job Position (Any alphanumerical word)
+- Contact number (Any alphanumerical or symbolic letters)
+- Email (Any alphanumerical or symbolic letters)
+- Status (Enter letter E/R/F/L : 'E' = Employed, 'R' = Resigned, 'F' = Fired, 'L' = Laid off)
+- Attendance (total attended days / work days in a year)
+- Salary (Only numerical letters)
+- Education and work history (Work or education history startyear-endyear)
+- Attribute (Any alphanumerical word, appends similar attribute to other employee details)
+
+**Follow strictly to the instructions given as entering letters which are not in the options might cause the program to work inaccurately.**
 
 
 ## Contributors
