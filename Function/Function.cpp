@@ -765,17 +765,19 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
           add_attributes_toNew_employee(Employee_details.attribute, buffer);
           while (continue_choice !=0)
           {
-            cout << "Enter any additional attributes : " << endl;
+            cout << "Enter any additional attributes : ";
             cin.ignore();
             getline(cin,input);
+            cout << endl;
             (buffer.attribute).push_back(input);
             add_attribute_toAll(Employee_details,input);
-            cout << "Enter the attribute value : " << endl;
+            cout << "Enter the attribute value : ";
             cin >> input;
+            cout << endl;
             (buffer.attributevalue).push_back(input);
             if (buffer.attribute.size() > 0)
             { 
-              cout << "Additional attributes added : " << endl;
+              cout << endl << "Additional attributes added : " << endl;
               Function::print_attributes(buffer.attribute,buffer.attributevalue);
             }
             
