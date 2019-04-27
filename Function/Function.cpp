@@ -622,8 +622,8 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
               break; 
             }
             Function::print_attribute_delete(details.attribute,details.attributevalue);
-            cout << endl << "WARNING: Deleting this attribute deletes the similar attribute for all employees" << endl;
-            cout << "Enter choice of attribute to delete or enter 0 to exit : ";
+            cout << endl << "WARNING: DELETING THIS ATTRIBUTE DELETES THE SIMILAR ATTRIBUTE FOR ALL EMPLOYEES!!!" << endl;
+            cout << <<endl << "Enter choice of attribute to delete or enter 0 to exit : ";
             cin >> choice;
             cout << endl;
             if (choice == 0)
