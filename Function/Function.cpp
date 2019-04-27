@@ -146,7 +146,7 @@ string Function::login_page(vector<Function::IDpass> UserIDpass)
 {
   string employeeID,password,authoritylevel;
   int i;
-  cout << "Enter your employee ID" << " : ";
+  cout << "Enter your employee ID" << ": ";
   cin >> employeeID;
   cout << endl;
   authoritylevel = employeeID[0];
@@ -154,7 +154,7 @@ string Function::login_page(vector<Function::IDpass> UserIDpass)
 
   while (i == -1)
   {
-    cout << "Please enter a valid employee ID" << " : ";
+    cout << "Please enter a valid employee ID" << ": ";
     cin >> employeeID;
     cout << endl;
     i = Function::employeeID_search(employeeID,UserIDpass);
@@ -162,11 +162,11 @@ string Function::login_page(vector<Function::IDpass> UserIDpass)
 
   if (i != -1)
   {
-    cout << "Enter password" << " : ";
+    cout << "Enter password" << ": ";
     cin >> password;
     cout << endl;
     while (!(Function::IDpass_check(i,UserIDpass,password))) {
-      cout << "Wrong password, please enter your password again" << " : ";
+      cout << "Wrong password, please enter your password again" << ": ";
       cin >> password;
       cout << endl;
     }
