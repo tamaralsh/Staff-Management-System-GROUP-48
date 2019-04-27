@@ -48,7 +48,6 @@ To compile this program, type _make file_ in the terminal in a Linux environment
 Output messages of instructions will be shown in the screen along with the flow of the program.
 
 The format of input when using **Create Employee function and Edit Employee function** are as follows:
-_**Follow strictly to the instructions given as entering letters which are not in the options might cause the program to work inaccurately.**_
 
 - Name (Any alphanumeric letters)
 - Employee Authority (Either 'H' for high, 'L' for low)
@@ -63,6 +62,7 @@ _**Follow strictly to the instructions given as entering letters which are not i
 - Education and work history (Work or education history startyear-endyear)
 - Attribute (Any alphanumerical word, appends similar attribute to other employee details)
 
+_**Follow strictly to the instructions given as entering letters which are not in the options might cause the program to work inaccurately.**_
 
 ## Contributors
 - Tamara Lee Su Hui [3035548922]
