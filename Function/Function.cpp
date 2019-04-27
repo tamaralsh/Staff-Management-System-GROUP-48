@@ -308,7 +308,7 @@ void Function::search_bySalary(double salary, vector<Function::Details> Employee
     if (high_or_low == "L") //if lower
     {
       if (Employee_details[i].salary < salary) {
-        count+;
+        count++;
         cout << Employee_details[i].name << endl;
         cout << Employee_details[i].employeeID << endl;
         cout << Employee_details[i].salary << endl;
