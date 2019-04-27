@@ -857,6 +857,7 @@ void Function::load_IDpass(string IDpass_filename, vector<Function::IDpass> &Use
   fin.close();
 }
 
+// Show role/position of employee //
 string Function::show_Positions(vector<string> Positions)
 {
   int position_number;
@@ -870,6 +871,7 @@ string Function::show_Positions(vector<string> Positions)
   return Positions[position_number-1];
 }
 
+// Search for employee by role/position //
 void Function::search_byPosition(string Position,vector<Function::Details> Employee_details)
 {
   for (int i = 0 ; i < Employee_details.size() ; i ++)
@@ -881,7 +883,7 @@ void Function::search_byPosition(string Position,vector<Function::Details> Emplo
   }
 }
 
-
+// Get the role/position of the employee - for purpose of choice selection //
 void Function::get_Positions(vector<Function::Details> Employee_details,vector<string> &Positions)
 {
   for (int i = 0; i < Employee_details.size(); i++)
@@ -898,7 +900,7 @@ void Function::get_Positions(vector<Function::Details> Employee_details,vector<s
   }
 }
 
-
+// Save employee details to Employee_Details.txt //
 void Function::save_details(string employeeData_filename, vector<Function::Details> Employee_details)
 {
   ofstream save;
