@@ -136,7 +136,7 @@ int main()
           cout << "Enter salary: ";
           cin >> salary;
           cout << endl << "Choose higher or lower" << endl;
-          cout << "Enter H for high and L for low: ";
+          cout << "Enter H for high or L for low: ";
           cin >> high_or_low;
           Function::search_bySalary(salary,Employee_details,high_or_low);
           break;
