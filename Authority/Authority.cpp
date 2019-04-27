@@ -5,10 +5,9 @@
 
 using namespace std;
 
+// Menu display for normal employees with restricted access //
 int Authority::menu_display_unauthorized()
 {
-  //name,employee ID,age,length of time at the company,position,contact details//
-  //working shift,attendance,work and education history,kpi,salary//
   int selection;
   cout << endl;
   cout << "---------------------- Staff Management System ----------------------" << endl;
@@ -34,6 +33,7 @@ int Authority::menu_display_unauthorized()
   return selection;
 }
 
+// Menu display for employees with full access //
 int Authority::menu_display_authorized()
 {
   int selection;
