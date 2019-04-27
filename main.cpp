@@ -171,6 +171,7 @@ int main()
             cin >> name;
             cout << endl;
             Function::delete_byName(Employee_details, name);
+            break;
           }
           if (choice == "E")
           {
@@ -179,6 +180,7 @@ int main()
             cin >> employeeID;
             cout << endl;
             Function::delete_byEmployeeID(Employee_details, employeeID);
+            break;
           }
           if (choice == "A")
           {
@@ -187,11 +189,13 @@ int main()
             cin >>age;
             cout << endl;
             Function::delete_byAge(Employee_details,age);
+            break;
           }
           if (choice == "R")
           {
             Function::delete_byPositions(Positions, Employee_details);
             Function::get_Positions(Employee_details,Positions);
+            break;
           }
           Function::save_details("Employee_Details.txt",Employee_details);
           break;
