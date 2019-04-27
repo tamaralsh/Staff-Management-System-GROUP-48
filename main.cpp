@@ -240,7 +240,7 @@ int main()
       }
       else
       {
-        if (edit_selection == 6) 
+        if (selection == 6) 
         { 
           cout << "Enter 1 to go back to menu";
           cin >> continue_choice;
