@@ -415,6 +415,7 @@ int Function::search_byName(string name, vector<Function::Details> Employee_deta
   return 0;
 }
 
+// Search for employee by employee ID //
 int Function::search_byEmployeeID(string employee_ID, vector<Function::Details> Employee_details)
 {
   int count = 0;
@@ -428,6 +429,7 @@ int Function::search_byEmployeeID(string employee_ID, vector<Function::Details> 
   return 0;
 }
 
+// Returns the maximum/largest employee ID //
 string Function::largestEmployeeID(vector<Function::Details> Employee_details,string authority)
 {
   string max = "000000",authoritycheck;
@@ -463,7 +465,7 @@ string Function::largestEmployeeID(vector<Function::Details> Employee_details,st
   return max;
 }
 
-
+// Edit employee details //
 int Function::edit_details(vector<Function::Details> &Employee_details, Function::Details &details)
 {
   int edit_selection;
