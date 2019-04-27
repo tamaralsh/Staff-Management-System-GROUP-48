@@ -725,12 +725,14 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
         cin.ignore();
         getline(cin,input);
         buffer.name = input;
+        bufferK.name = input;
         break;
       case 1:
         cout << "Employee authority, H = high, N = normal" << ": ";
         cin >> input;
         employeeID = Function::largestEmployeeID(Employee_details,input);
         buffer.employeeID = employeeID;
+        bufferK.employeeID = employeeID;
         break;
       case 2:
         cout << "Date of birth (dd/mm/yyyy)" << " : ";
@@ -846,7 +848,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   }
   Employee_details.push_back(buffer);
   book.push_back(bufferK);
-  save_KPI(book);
+  Function::save_KPI(book);
   cout << "Employee details succesfully stored." << endl;
   cout << "Your Employee ID is " << employeeID << endl;
   cout << "Your password is " << Function::store_UserIDpass(UserIDpass,employeeID) << endl;
