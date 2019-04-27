@@ -492,7 +492,7 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
         }
       case 5:
         {
-          cout << "Enter new position: " ;
+          cout << "Enter new job position: " ;
           cin.ignore();
           getline(cin,input);
           cout << endl;
@@ -706,7 +706,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
         buffer.joiningtime = input;
         break;
       case 4:
-        cout << "Position" << ": " ;
+        cout << "Job position" << ": " ;
         cin.ignore();
         getline(cin,input);
         buffer.position = input;
