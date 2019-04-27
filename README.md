@@ -6,33 +6,47 @@ Hence, a staff management system that works as a database to record information 
 ## Functionalities and Features
 ### Basic Features
 1. Create a new employee with employee ID, name, age, role and salary.
-2. Search for and delete and employee via their ID, name, age or role.
-3. Fire an employee.
+2. Search for and delete and employee via their ID, name, age or role(position/job).
+3. Fire an employee with delete function to delete their details.
 4. Edit the details of an existing employee.
 5. Search for all the employees with a salary higher than or lower than a user input (only employees with full access can do this).
-6. Allow adding user-defined attributes, the value of a new attribute of the existing employee should be empty or undefined.
+6. Allow adding user-defined attributes, the value of a new attribute of the existing employee will be empty.
 
 ### Additional Features
 1. Show a key performance indicator (KPI) leader board (Sorted by weighted score).
 2. Use of a user ID and password system (to restrict certain functions like edit/delete).
 3. Export all the employee information after updates to a local text file (.txt).
-4. Show extra employee information such as length of time at the company, date of birth, atttendance and work/education history.
+4. Show extra employee information such as length of time at the company, attendance and work/education history, along with the KPI ratings from the leaderboard to ease with process of pay-raise or pay-cut.
 
 ## Assumptions
-Every employee is assigned a 6-digit ID and a password. The first index of the 6-digit employee ID will determine whether the employee is allowed to create a new employee, edit employee information and delete employee. If the first index is "1", the employee has restricted access to the system and if the first index is "2", the employee has full access to the system.
+- Every employee is assigned with a random 6-digit ID and a password when you create a new employee detail
+- The first index of the employee ID will determine whether the employee is allowed to access higher authority functions.
+- If first index is "2", employee will have access to high authority functions such as :
+    - Create a new employee
+    - Edit employee information 
+    - Delete employee
+    - Search salary function
+- If the first index is "1", employee will have access to basic functions such as:
+    - Search by name
+    - Search by employee ID
+    - Search by job position
+    - Show KPI leaderboard
 
 ## General Instructions
 ### Requisites
-This program is a C++11 standard program. It will run in a C++11 standard complier i.e., Atom in a Ubuntu Linux environment.
+This program is a C++11 standard program. It will run in a C++11 standard compiler i.e., Atom in a Ubuntu Linux environment.
 ### Input and output specifications
-Input files **must be named** _**"Employee_Details.txt"**_ (contains employee details in the order of: name, employee ID, date of birth, time joined the company, position/role, contact number, email, status, attendance, education/work history), _**"UserIDpass.txt"**_ (stores all the employee IDs and passwords) and _**"kpi.txt"**_ (stores KPI information).
+Input files **must be named** _**"Employee_Details.txt"**_ (contains employee details in the order of: name, employee ID, date of birth, time joined the company, position/role, contact number, email, status, attendance, education/work history, additional attributes), _**"UserIDpass.txt"**_ (stores all the employee IDs and passwords) and _**"kpi.txt"**_ (stores KPI information).
 
-In the _**"Employee_Details.txt"**_ file, a '//' is written at the end of an employee's information to distinguish information between different employees. 
+In the _**"Employee_Details.txt"**_ file, a '//' is written at the end of an employee's information to distinguish information between different employees.
 
 If any employee information is updated, the newly updated information will be outputed to the _**"Employee_Details.txt"**_ file for future use.
 
 ### Compilation and execution instructions
 To compile this program, type _make file_ in the terminal in a Linux environment. Once the compilation is successful, type _./main_ to run the program.
+
+Output messages of instructions will be shown in the screen along with the flow of the program. **Follow strictly to the instructions given as entering words which are not in the options might cause the program to work inaccurately.**
+
 
 ## Contributors
 - Tamara Lee Su Hui [3035548922]
