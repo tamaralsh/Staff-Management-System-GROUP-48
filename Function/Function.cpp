@@ -61,7 +61,7 @@ void Function::delete_byPositions(vector<string> Positions, vector <Function::De
       }
     }
   }
-  save_details("Employee_details.txt",Employee_details");
+  save_details("Employee_details.txt",Employee_details);
 }
 
 // Print added attributes //
