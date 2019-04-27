@@ -112,7 +112,7 @@ string Function::store_UserIDpass(vector<Function::IDpass> & UserIDpass, string 
   newUser.employeeID = employeeID;
   newUser.password = password;
   UserIDpass.push_back(newUser);
-  Function::save_UserIDpass(UserIDpass,"UserIDpass.txt")
+  Function::save_UserIDpass(UserIDpass,"UserIDpass.txt");
   return password;
 }
 
@@ -829,7 +829,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   cout << "Employee details succesfully stored." << endl;
   cout << "Your Employee ID is " << employeeID << endl;
   cout << "Your password is " << Function::store_UserIDpass(UserIDpass,employeeID) << endl;
-  save_details("Employee_Details.txt",Employee_details);
+  Function::save_details("Employee_Details.txt",Employee_details);
 }
 
 // Collect employee IDs and passwords from UserIDpass.txt and adds them to a vector //
