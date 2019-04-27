@@ -1,7 +1,7 @@
 Lee Tak Wah
 200001
 19/02/1987
-08-2016
+08/2016
 Project Engineer
 58305939
 Leetakwah92@yahoo.com
@@ -17,7 +17,7 @@ Volvo Cars 2013-2017
 Lim Ah Tak
 100001
 12/06/1984
-12-2017
+12/2017
 Salesman
 41231231
 ahtak@gmail.com
@@ -34,7 +34,7 @@ AIG Insurance 2015-2017
 Lai Chee Kok
 100002
 13/01/1988
-12-2012
+12/2012
 Salesman
 4123312
 LaiChee@gmail.com
@@ -50,7 +50,7 @@ AIA Insurance 2010-2012
 Lam Tak Kin
 100003
 05/05/1981
-10-2007
+10/2007
 Salesman
 77123411
 LamTak@gmail.com
@@ -66,7 +66,7 @@ AIG Insurance 2005-2007
 Lee Zet Tay
 100004
 03/04/1972
-04-2001
+04/2001
 Accountant
 73321233
 Zettay@gmail.com
@@ -81,7 +81,7 @@ Deloitte 1993-2001
 Wong Hock Ooi
 200002
 04/05/1970
-04-2005
+04/2005
 Salesman
 78883211
 Hockooi@gmail.com
@@ -97,7 +97,7 @@ AIG Insurance 2005-2007
 Wong Hock Chuan
 200003
 02/03/1980
-04-2015
+04/2015
 Salesman
 78323112
 Hockchuan@gmail.com
@@ -113,7 +113,7 @@ Volvo Cars 2008-2015
 Sai Tai Han
 200004
 03/09/1990
-04-2017
+04/2017
 Salesman
 78231144
 TaiHan@gmail.com
