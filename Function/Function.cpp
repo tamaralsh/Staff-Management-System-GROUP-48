@@ -631,6 +631,7 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
             cin >> newvalue;
             cout << endl;
             (Employee_details[i].attributevalue)[choice-1] = newvalue;
+          }
           break;
         }
       }
