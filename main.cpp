@@ -160,7 +160,7 @@ int main()
         case 8:
         {
           string choice;
-          cout << "Choose the attribute for searching to delete" << endl;
+          cout << "Choose the attribute for searching to delete." << endl;
           cout << "Enter 'N' for name, 'E' for employee ID, 'A' for age, 'R' for role/position : ";
           cin >> choice;
           cout << endl;
@@ -250,7 +250,7 @@ int main()
         {
           cout << endl << "1. Continue" << endl;
           cout << "2. Back to menu" << endl;
-          cout << "Enter choice : ";
+          cout << "Enter choice: ";
           cin >> continue_choice;
           cout << endl;
         }
