@@ -61,7 +61,7 @@ The format of input when using **Create Employee function and Edit Employee func
 - Education and work history (Work or education history startyear-endyear)
 - Attribute (Any alphanumerical word, appends similar attribute to other employee details)
 
-**Follow strictly to the instructions given as entering letters which are not in the options might cause the program to work inaccurately.**
+_**Follow strictly to the instructions given as entering letters which are not in the options might cause the program to work inaccurately.**_
 
 
 ## Contributors
