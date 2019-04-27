@@ -638,7 +638,7 @@ void Function::add_attribute_toAll(vector<Function::Details> & Employee_details,
 {
   for (int i = 0; i < Employee_details.size(); i++)
   {
-    (Employee_details[i].attribute).push_back(buffer_attribute[i]);
+    (Employee_details[i].attribute).push_back(attribute);
     (Employee_details[i].attributevalue).push_back("N/A");
   }
 }
