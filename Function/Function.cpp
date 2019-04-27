@@ -745,7 +745,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             (buffer.history).push_back(input);
             if ((buffer.history).size() > 0) { Function::print_history(buffer.history); }
 
-            cout << "Enter 1 to continue or 0 to exit: " ;
+            cout << endl << "Enter 1 to continue or 0 to exit: " ;
             cin >> continue_choice;
             cout << endl;
             while (continue_choice != 1 && continue_choice != 0)
