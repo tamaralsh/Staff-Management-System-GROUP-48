@@ -617,10 +617,9 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
           cout << endl;
           if (add_or_delete == 1)
           {
-            cout << "Enter new attribute : ";
+            cout << "Enter new attribute : " << endl;
             cin.ignore();
             getline(cin,input);
-            cout << endl;
             add_attribute_toAll(Employee_details,input);
             (details.attribute).pop_back();
             (details.attribute).push_back(input);
@@ -639,7 +638,7 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
             }
             Function::print_attribute_delete(details.attribute,details.attributevalue);
             cout << endl << "WARNING: DELETING THIS ATTRIBUTE DELETES THE SIMILAR ATTRIBUTE FOR ALL EMPLOYEES!!!" << endl;
-            cout << <<endl << "Enter choice of attribute to delete or enter 0 to exit : ";
+            cout << endl << "Enter choice of attribute to delete or enter 0 to exit : ";
             cin >> choice;
             cout << endl;
             if (choice == 0)
@@ -982,7 +981,7 @@ void Function::delete_byAge(vector <Function::Details> &Employee_details, string
       }
     }
   }
-  save_details("Employee_details.txt",Employee_details");
+  save_details("Employee_details.txt",Employee_details);
   if (count == 0) { cout << "There are no employees with the year of birth entered"; }
 }
 
