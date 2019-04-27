@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <iomanip>
 #include "Function.h"
+#include "kpi.h"
 
 using namespace std;
 
@@ -127,6 +128,21 @@ void Function::save_UserIDpass(vector<Function::IDpass> UserIDpass,string UserID
   {
     fout << UserIDpass[i].employeeID << endl;
     fout << UserIDpass[i].password << endl;
+    fout << endl;
+  }
+  fout.close();
+}
+
+// Update name and ID in kpi.txt//
+void Function::save_KPI(vector<KPI::Record> book)
+{
+  ofstream fout;
+  fout.open("kpi.txt");
+  if (fout.fail()) { cout << "Error in opening file."; exit(1); }
+  for (int i = 0 ; i < book.size() ; i++)
+  {
+    fout << book[i].name << endl;
+    fout << book[i].employeeID << endl;
     fout << endl;
   }
   fout.close();
@@ -692,11 +708,12 @@ void Function::add_attribute_toAll(vector<Function::Details> & Employee_details,
 }
 
 // Create a new employee //
-void Function::createEmployee(vector<Function::Details> &Employee_details,vector<Function::IDpass> & UserIDpass)
+void Function::createEmployee(vector<Function::Details> &Employee_details,vector<Function::IDpass> & UserIDpass,vector<KPI::Record> &book)
 {
   string input, employeeID;
   int confirmation;
   Details buffer;
+  KPI::Record bufferK;
   int numberofHistory;
   double salary_input;
   Function::add_attribute_toNew_employee(Employee_details[0].attribute,buffer);
@@ -829,6 +846,8 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
     }
   }
   Employee_details.push_back(buffer);
+  book.push_back(bufferK);
+  save_KPI(book);
   cout << "Employee details succesfully stored." << endl;
   cout << "Your Employee ID is " << employeeID << endl;
   cout << "Your password is " << Function::store_UserIDpass(UserIDpass,employeeID) << endl;
