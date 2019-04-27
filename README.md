@@ -50,7 +50,15 @@ In the _**"Employee_Details.txt"**_ file, a '//' is written at the end of an emp
 If any employee information is updated, the newly updated information will be outputed to the _**"Employee_Details.txt"**_ file for future use.
 
 ### Compilation and execution instructions
-To compile this program, type _make file_ in the terminal in a Linux environment. Once the compilation is successful, type _./main_ to run the program.
+To compile this program, type 
+```sh
+make file
+```
+in the terminal in a Linux environment. Once the compilation is successful, type 
+```sh
+./main
+````
+to run the program.
 
 Output messages of instructions will be shown in the screen along with the flow of the program.
 
