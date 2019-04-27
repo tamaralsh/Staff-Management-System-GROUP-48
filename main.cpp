@@ -222,7 +222,6 @@ int main()
             }
           }
           Function::edit_details(Employee_details,Employee_details[i]);
-          Function::save_details("Employee_Details_saved.txt",Employee_details);
           break;
         }
       }
