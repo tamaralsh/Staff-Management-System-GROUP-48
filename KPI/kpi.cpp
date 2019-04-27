@@ -60,6 +60,7 @@ void KPI::sortVector(vector<Record> &book)
 // print out the KPI leader board //
 void KPI::showKPIboard(vector<Record> &book, string KPIfilename)
 {
+  loadKPIvector(KPIfilename, book);
   addScore(book);
   sortVector(book);
   cout << "**************************** KPI LEADER BOARD ****************************"  << endl;
