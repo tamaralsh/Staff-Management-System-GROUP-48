@@ -72,6 +72,7 @@ void Function::print_attributes(vector<string> attribute, vector<string> attribu
   }
 }
 
+// Check if the password entered is correct //
 bool Function::IDpass_check(int i, vector<Function::IDpass> UserIDpass, string password)
 {
   if (UserIDpass[i].password == password) { return true; }
@@ -86,6 +87,7 @@ void Function::print_history(vector<string> history)
   }
 }
 
+// Password generator for new employees //
 string Function::password_randomizer()
 {
   srand(time(0));
