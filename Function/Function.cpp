@@ -46,7 +46,7 @@ void Function::delete_byPositions(vector<string> Positions, vector <Function::De
     if (Employee_details[i].position == Positions[position_number-1])
     {
       Function::print_details(Employee_details[i]);
-      cout << "Enter Y to confirm, N to cancel : ";
+      cout << "Enter Y to confirm, N to cancel: ";
       cin >> confirmation;
       count++;
       if (confirmation == "Y")
@@ -352,7 +352,7 @@ int Function::delete_byEmployeeID(vector<Function::Details> &Employee_details, s
     if (employeeID == Employee_details[i].employeeID)
     {
       Function::print_details(Employee_details[i]);
-      cout << "Enter Y to confirm, N to cancel";
+      cout << "Enter Y to confirm, N to cancel: ";
       cin >> confirmation;
       cout << endl;
       if (confirmation == "Y")
@@ -383,7 +383,7 @@ int Function::delete_byName(vector<Function::Details> &Employee_details, string 
     if (name == Employee_details[i].name)
     {
       Function::print_details(Employee_details[i]);
-      cout << "Enter Y to confirm, N to cancel";
+      cout << "Enter Y to confirm, N to cancel: ";
       cin >> confirmation;
       cout << endl;
       if (confirmation == "Y")
