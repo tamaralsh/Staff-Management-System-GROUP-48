@@ -695,7 +695,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   Details buffer;
   int numberofHistory;
   double salary_input;
-
+  Function::add_attribute_toNew_employee(Employee_details[0].attribute,buffer);
   for (int i = 0; i < 12 ; i++)
   {
     switch (i)
@@ -794,7 +794,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             (buffer.attributevalue).push_back(input);
             if (buffer.attribute.size() > 0)
             { 
-              cout << endl << "Additional attributes added : " << endl;
+              cout << endl << "Additional Attributes : " << endl;
               Function::print_attributes(buffer.attribute,buffer.attributevalue);
             }
             
@@ -982,7 +982,7 @@ int Function::add_attribute_toNew_employee(vector<string> attribute, Function::D
     for (int i = 0; i < attribute.size(); i++)
     {
       (buffer.attribute).push_back(attribute[i]);
-      (buffer.attributevalue).push_back("");
+      (buffer.attributevalue).push_back("N/A);
     }
   }
 }
