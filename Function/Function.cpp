@@ -618,7 +618,7 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
           {
             int choice;
             string newvalue;
-            if ((details.atribute).empty())
+            if ((details.attribute).empty())
             { 
               cout << "There are currently no attributes to be deleted" << endl; 
               break;
