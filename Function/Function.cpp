@@ -605,12 +605,13 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
             cin.ignore();
             getline(cin,input);
             cout << endl;
-            (details.attribute).push_back(input);
             add_attribute_toAll(Employee_details,input);
+            (details.attribute).pop_back();
+            (details.attribute).push_back(input);
             cout << "Enter the corresponding attribute value : ";
             getline(cin,input);
             cout << endl;
-            (details.attributevalue).push_back(input);
+            (details.attributevalue)[(details.attribute).size()-1] = input;
           }
           if (add_or_delete == 2)
           {
@@ -621,7 +622,7 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
               break; 
             }
             Function::print_attribute_delete(details.attribute,details.attributevalue);
-            cout << "WARNING: Deleting this attribute deletes the similar attribute for all employees" << endl;
+            cout << endl << "WARNING: Deleting this attribute deletes the similar attribute for all employees" << endl;
             cout << "Enter choice of attribute to delete or enter 0 to exit : ";
             cin >> choice;
             cout << endl;
