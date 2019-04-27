@@ -104,7 +104,7 @@ string Function::password_randomizer()
   return password;
 }
 
-
+// Add new employee ID and password to vector //
 string Function::store_UserIDpass(vector<Function::IDpass> & UserIDpass, string employeeID)
 {
   string password = password_randomizer();
@@ -116,6 +116,7 @@ string Function::store_UserIDpass(vector<Function::IDpass> & UserIDpass, string 
   return password;
 }
 
+// Update the employee IDs and passswords in the UserIDpass.txt file //
 void Function::save_UserIDpass(vector<Function::IDpass> UserIDpass,string UserIDpass_filename)
 {
   ofstream fout;
@@ -130,6 +131,7 @@ void Function::save_UserIDpass(vector<Function::IDpass> UserIDpass,string UserID
   fout.close();
 }
 
+// Print history for deletion //
 void Function::print_history_delete(vector<string> history)
 {
   int count = 1;
@@ -138,6 +140,7 @@ void Function::print_history_delete(vector<string> history)
     cout << count++ << ".  " << history[i] << endl;
   }
 }
+
 // login page //
 string Function::login_page(vector<Function::IDpass> UserIDpass)
 {
