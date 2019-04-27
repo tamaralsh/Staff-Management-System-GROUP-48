@@ -933,7 +933,7 @@ void Function::save_details(string employeeData_filename, vector<Function::Detai
   save.close();
 }
 
-
+// Delete employee by age //
 void Function::delete_byAge(vector <Function::Details> &Employee_details, string DOB_yeartodelete)
 {
   string confirmation = "";
@@ -963,7 +963,7 @@ void Function::delete_byAge(vector <Function::Details> &Employee_details, string
   if (count == 0) { cout << "There are no employees with the year of birth entered"; }
 }
 
-
+// Print attribute //
 void Function::print_attribute_delete(vector<string> attribute, vector<string> attributevalue)
 {
  int count = 1;
@@ -973,6 +973,7 @@ void Function::print_attribute_delete(vector<string> attribute, vector<string> a
  }
 }
 
+// Add the new attribute to employee //
 int Function::add_attribute_toNew_employee(vector<string> attribute, Function::Details & buffer)
 {
   if (attribute.empty()) { return 0; }
