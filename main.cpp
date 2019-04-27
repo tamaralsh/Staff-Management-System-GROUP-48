@@ -169,7 +169,7 @@ int main()
             string name;
             cout << "Enter the name to delete: ";
             cin.ignore();
-            getline(cin,input);
+            getline(cin,name);
             cout << endl;
             Function::delete_byName(Employee_details, name);
             break;
