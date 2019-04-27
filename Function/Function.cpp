@@ -676,7 +676,6 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   string input, employeeID;
   int confirmation;
   Details buffer;
-  vector<string> buffer_attribute;
   int numberofHistory;
   double salary_input;
 
@@ -796,7 +795,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
         }
 
   }
-
+  add_attributes_toNew_employee(Employee_details.attribute, bufffer);
   Function::print_details(buffer);
   cout << "Check details entered. If you wish to edit, enter 1, else, enter 0 to confirm : ";
   cin >> confirmation;
@@ -952,3 +951,17 @@ void Function::print_attribute_delete(vector<string> attribute, vector<string> a
    cout << count++ << ".  " << attribute[i] << " : " << attributevalue[i] << endl;
  }
 }
+
+int add_attributes_toNew_employee(vector<string> attribute, Function::Details & bufffer)
+{
+  if (attribute.empty()) { return 0; }
+  else
+  {
+    for (int i = 0; i < attribute.size(); i++)
+    {
+      (buffer.attribute).push_back(attribute[i]);
+      (buffer.attributevalue).push_back("");
+    }
+  }
+}
+  
