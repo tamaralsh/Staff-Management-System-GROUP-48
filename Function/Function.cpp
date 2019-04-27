@@ -982,7 +982,7 @@ int Function::add_attribute_toNew_employee(vector<string> attribute, Function::D
     for (int i = 0; i < attribute.size(); i++)
     {
       (buffer.attribute).push_back(attribute[i]);
-      (buffer.attributevalue).push_back("N/A);
+      (buffer.attributevalue).push_back("N/A");
     }
   }
 }
