@@ -15,7 +15,7 @@ int Authority::menu_display_unauthorized()
   cout << "1. Search by name" << endl;
   cout << "2. Search by employee ID" << endl;
   cout << "3. Search by age" << endl;
-  cout << "4. Search by position/department" << endl;
+  cout << "4. Search by job position" << endl;
   cout << "5. Show KPI leaderboard" << endl;
   cout << "0. Exit" << endl;
   cout << endl << "Enter your choice: ";
@@ -43,7 +43,7 @@ int Authority::menu_display_authorized()
   cout << "2. Search by employee ID" << endl;
   cout << "3. Search by age" << endl;
   cout << "4. Search by salary" << endl;
-  cout << "5. Search by position/department" << endl;
+  cout << "5. Search by job position" << endl;
   cout << "6. Show KPI leaderboard" << endl;
   cout << "7. Create New Employee" << endl;
   cout << "8. Delete employee details" << endl;
