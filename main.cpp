@@ -78,7 +78,7 @@ int main()
     continue_choice = 0;
     switch (selection)
     {
-      case 1:
+      case 1: // search by name //
         {
           string name;
           cout << "Enter name: ";
@@ -96,7 +96,7 @@ int main()
           }
           break;
         }
-        case 2:
+        case 2: // search by employee ID //
         {
           int i;
           string employeeID;
@@ -120,7 +120,7 @@ int main()
           Function::print_details(Employee_details[i]);
           break;
         }
-        case 3:
+        case 3: // search by year of birth //
         {
           string yearofBirth;
           cout << "Enter a year of birth(four digit) of employees to be deleted: ";
@@ -130,7 +130,7 @@ int main()
           break;
         }
         
-        case 4:
+        case 4: // search by salary, either higher or lower than salary entered //
         {
           double salary;
           string high_or_low;
@@ -142,30 +142,30 @@ int main()
           Function::search_bySalary(salary,Employee_details,high_or_low);
           break;
         }
-        case 5:
+        case 5: // search by job position of all employees in the company //
         {
           string position = Function::show_Positions(Positions);
           Function::search_byPosition(position,Employee_details);
           break;
         }
-        case 6:
+        case 6: // show the KPI leaderboard //
         {
           KPI::showKPIboard(book, KPIfilename);
           break;
         }
-        case 7:
+        case 7: // create Employee //
         {
           Function::createEmployee(Employee_details,UserIDpass);
           break;
         }
-        case 8:
+        case 8: // delete by attribute //
         {
           string choice;
           cout << "Choose the attribute for searching to delete." << endl;
           cout << "Enter 'N' for name, 'E' for employee ID, 'A' for age, 'R' for role/position : ";
           cin >> choice;
           cout << endl;
-          if (choice == "N")
+          if (choice == "N") // by name //
           {
             string name;
             cout << "Enter the name to delete: ";
@@ -175,7 +175,7 @@ int main()
             Function::delete_byName(Employee_details, name);            
             break;
           }
-          if (choice == "E")
+          if (choice == "E") // by employee ID //
           {
             string employeeID;
             cout << "Enter the employee ID to delete: ";
@@ -184,7 +184,7 @@ int main()
             Function::delete_byEmployeeID(Employee_details, employeeID);            
             break;
           }
-          if (choice == "A")
+          if (choice == "A") // by age //
           {
             string age;
             cout << "Enter the year of birth to delete: ";
@@ -193,7 +193,7 @@ int main()
             Function::delete_byAge(Employee_details,age);            
             break;
           }
-          if (choice == "R")
+          if (choice == "R") // by job position //
           {
             Function::delete_byPositions(Positions, Employee_details);
             Function::get_Positions(Employee_details,Positions);
@@ -201,7 +201,7 @@ int main()
           }
           break;
         }
-        case 9:
+        case 9: // edit employee details //
         {
           string employeeID;
           Details buffer;
