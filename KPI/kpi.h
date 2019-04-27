@@ -18,7 +18,7 @@ public:
   {
   public:
     string name;
-    string employeeID;
+    int employeeID;
     double w1 = 0.0;
     double w2 = 0.0;
     double w3 = 0.0;
