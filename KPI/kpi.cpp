@@ -71,4 +71,5 @@ void KPI::showKPIboard(vector<Record> &book, string KPIfilename)
     setw(7) << book[i].total << endl;
   }
   cout << "**************************************************************************" << endl;
+  book.clear();
 }
