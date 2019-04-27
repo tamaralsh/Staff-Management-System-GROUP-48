@@ -952,7 +952,7 @@ void Function::print_attribute_delete(vector<string> attribute, vector<string> a
  }
 }
 
-int add_attributes_toNew_employee(vector<string> attribute, Function::Details & bufffer)
+int Function::add_attributes_toNew_employee(vector<string> attribute, Function::Details & bufffer)
 {
   if (attribute.empty()) { return 0; }
   else
