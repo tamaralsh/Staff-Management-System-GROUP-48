@@ -450,7 +450,7 @@ string Function::largestEmployeeID(vector<Function::Details> Employee_details,st
 }
 
 
-int Function::edit_details(vector<Function::Details>Employee_details, Function::Details &details,int i)
+int Function::edit_details(vector<Function::Details>Employee_details, Function::Details &details)
 {
   int edit_selection;
   string input;
@@ -588,12 +588,6 @@ int Function::edit_details(vector<Function::Details>Employee_details, Function::
             cout << endl;
             (details.attribute).push_back(input);
             add_attribute_toAll(Employee_details,input);
-            for (int i = 0; i < Employee_details.size(); i++)
-            {
-              if ((Employee_details[i].attribute)[Employee_details.size()-1] == input)
-              { continue; }
-              (Employee_details[i].attribute).push_back(input);
-            }
             cout << "Enter the corresponding attribute value : ";
             getline(cin,input);
             cout << endl;
@@ -631,6 +625,7 @@ int Function::edit_details(vector<Function::Details>Employee_details, Function::
         if (edit_selection == 0) return 0;
       }
     }
+  save_details("Employee_Details.txt",Employee_details);
   return 0;
 }
 
