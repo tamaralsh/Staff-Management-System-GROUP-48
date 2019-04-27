@@ -517,7 +517,7 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
         }
       case 8:
         {
-          cout << endl << "E = employed, R = resigned, F = fired L = laid off" << endl;
+          cout << endl << "E = employed, R = resigned, F = fired, L = laid off" << endl;
           cout << "Enter new status, E/R/F/L: ";
           cin >> input;
           if (input == "E")
