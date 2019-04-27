@@ -116,6 +116,7 @@ int main()
               i = Function::search_byEmployeeID(employeeID,Employee_details);
             }
           }
+          if (i == -1) { break; }
           Function::print_details(Employee_details[i]);
           break;
         }
