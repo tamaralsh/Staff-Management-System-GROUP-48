@@ -23,6 +23,7 @@ Employed
 259/261
 25000
 Wimbledon College
+/
 //
 
 Robert Downey Jr.
@@ -39,7 +40,6 @@ Stark Industries
 /
 //
 
-
 Tom Hiddleston
 100003
 09/02/1981
@@ -53,8 +53,6 @@ Employed
 University of Cambridge
 /
 //
-
-Project Engineer
 
 Scarlet Johansson
 100004
@@ -113,7 +111,6 @@ Employed
 Pennsylvania State University
 /
 //
-
 
 Benedict Cumberbatch
 200002
