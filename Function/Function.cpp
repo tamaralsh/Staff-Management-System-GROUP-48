@@ -356,7 +356,7 @@ int Function::delete_byEmployeeID(vector<Function::Details> &Employee_details, s
       }
     }
   }
-  if (count == 0) { return -1; }
+  if (count == 0) { cout << "There is no employee with the employee ID entered."; }
   return 0;
 }
 
@@ -385,7 +385,7 @@ int Function::delete_byName(vector<Function::Details> &Employee_details, string 
       }
     }
   }
-  if (count == 0) { return -1; }
+  if (count == 0) { cout << "There are no employees with the name entered."; }
   return 0;
 }
 
