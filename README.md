@@ -16,7 +16,7 @@ Hence, a staff management system that works as a database to record information 
 1. Show a key performance indicator (KPI) leader board (Sorted by weighted score).
 2. Use of a user ID and password system (to restrict certain functions like edit/delete).
 3. Export all the employee information after updates to a local text file (.txt).
-4. Show extra employee information such as length of time at the company, attendance and work/education history, along with the KPI ratings from the leaderboard to ease with process of pay-raise or pay-cut.
+4. Show extra employee information such as length of time at the company, attendance and work/education history, along with the KPI rankings from the leaderboard to ease with process of pay-raise or pay-cut.
 
 ## Assumptions
 - Every employee is assigned with a random 6-digit ID and a password when you create a new employee detail
@@ -31,6 +31,13 @@ Hence, a staff management system that works as a database to record information 
     - Search by employee ID
     - Search by job position
     - Show KPI leaderboard
+ - The KPI weightage is already calculated in the _**kpi.txt**_ file and only **5** factors are taken into account when calculating the KPI score. In the text file, each weightage score is seperated by a space (" ") and the datas are in the order of name, employee ID and 5 KPI weightage scores (in the case where an employee gets a perfect score for every weightage score, the total final KPI score would be 100). Below is an example of the data:
+ 
+ ```sh
+Lee Tak Wah
+200001
+24 45 2 3 10
+```
 
 ## General Instructions
 ### Requisites
