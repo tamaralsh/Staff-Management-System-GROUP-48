@@ -21,15 +21,16 @@ int Authority::menu_display_unauthorized()
   cout << endl << "Enter your choice: ";
 
   cin >> selection;
-  while (selection > 5)
+  while (selection < 0 || selection > 5)
   {
-    cout << "Please enter a valid option from the menu : ";
+    cout << "Please choose an option from the menu" << endl;
+    cout << "Enter option : ";
     cin >> selection;
     cout << endl;
-    if ((selection == 4) || (selection == 5)) { selection++; }
   }
+  if ((selection == 4) || (selection == 5)) { selection++; }
   cout << endl;
-
+  
   return selection;
 }
 
@@ -48,10 +49,17 @@ int Authority::menu_display_authorized()
   cout << "8. Delete employee details" << endl;
   cout << "9. Edit employee details" << endl;
   cout << "0. Exit" << endl;
+  
   cout << endl << "Enter your choice: ";
-
   cin >> selection;
   cout << endl;
+  while (selection < 0 || selection > 9)
+  {
+    cout << "Please choose an option from the menu" << endl;
+    cout << "Enter option : ";
+    cin >> selection;
+    cout << endl;
+  }
 
   return selection;
 }
