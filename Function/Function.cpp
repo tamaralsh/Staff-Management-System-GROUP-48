@@ -261,19 +261,16 @@ void Function::load_details(string employeeData_filename, vector <Function::Deta
         {
           int i = 0;
           if (input == "//") { break; }
-          cout << "storing" << input << "into attribute" << endl;
           (buffer.attribute).push_back(input);
           while(getline(fin,input))
           {
             if (input == "//") { break; }
             if ((i % 2) == 0)
             {
-              cout << "storing" << input << "into attributevalue" << endl;
               (buffer.attributevalue).push_back(input);
             }
             else
             {
-              cout << "storing" << input << "into attribute" << endl;
               (buffer.attribute).push_back(input);
             }
             i++;
@@ -635,15 +632,12 @@ int Function::edit_details(vector<Function::Details>Employee_details, Function::
   return 0;
 }
 
-void Function::add_attribute_toAll(vector<Function::Details> & Employee_details, vector<string> buffer_attribute)
+void Function::add_attribute_toAll(vector<Function::Details> & Employee_details, string attribute)
 {
-  for (int i = 0; i < buffer_attribute.size(); i++)
+  for (int i = 0; i < Employee_details.size(); i++)
   {
-    for (int j = 0; j < Employee_details.size(); j++)
-    {
-      (Employee_details[j].attribute).push_back(buffer_attribute[i]);
-      (Employee_details[j].attributevalue).push_back("");
-    }
+    (Employee_details[i].attribute).push_back(buffer_attribute[i]);
+    (Employee_details[i].attributevalue).push_back("");
   }
 }
 
@@ -742,8 +736,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             cout << "Enter any additional attributes : " << endl;
             cin.ignore();
             getline(cin,input);
-            (buffer.attribute).push_back(input);
-            buffer_attribute.push_back(input);
+            add_attribute_toAll(Employee_details,attribute);
             cout << "Enter the attribute value : " << endl;
             cin >> input;
             if (buffer.attribute.size() > 0)
@@ -778,8 +771,6 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
     }
   }
   Employee_details.push_back(buffer);
-  add_attribute_toAll(Employee_details, buffer_attribute);
-  buffer_attribute.clear();
   cout << "Employee details succesfully stored." << endl;
   cout << "Your Employee ID is " << employeeID << endl;
   cout << "Your password is " << Function::store_UserIDpass(UserIDpass,employeeID) << endl;
