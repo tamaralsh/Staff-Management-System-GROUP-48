@@ -669,7 +669,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
         buffer.dateofbirth = input;
         break;
       case 3:
-        cout << "Joining time (dd/mm/yyyy)" << ": ";
+        cout << "Joining time (mm/yyyy)" << ": ";
         cin >> input;
         buffer.joiningtime = input;
         break;
