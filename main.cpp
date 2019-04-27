@@ -193,6 +193,7 @@ int main()
             Function::delete_byPositions(Positions, Employee_details);
             Function::get_Positions(Employee_details,Positions);
           }
+          Function::save_details("Employee_Details.txt",Employee_details);
           break;
         }
         case 9:
