@@ -65,7 +65,7 @@ void Function::print_attributes(vector<string> attribute, vector<string> attribu
 {
   for (int i = 0; i < attribute.size(); i++)
   {
-    cout << attribute[i] << " : " << attributevalue[i] << endl;
+    cout << "    - " << attribute[i] << " : " << attributevalue[i] << endl;
   }
 }
 
