@@ -750,7 +750,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             cout << endl;
             while (continue_choice != 1 && continue_choice != 0)
               {
-                cout << "Enter 1 to continue or 0 to exit: " ;
+                cout << endl << "Enter 1 to continue or 0 to exit: " ;
                 cin >> continue_choice;
                 cout << endl;
               }
