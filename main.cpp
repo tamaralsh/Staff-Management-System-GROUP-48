@@ -171,8 +171,7 @@ int main()
             cin.ignore();
             getline(cin,name);
             cout << endl;
-            Function::delete_byName(Employee_details, name);
-            Function::save_details("Employee_Details_saved.txt",Employee_details);
+            Function::delete_byName(Employee_details, name);            
             break;
           }
           if (choice == "E")
@@ -181,8 +180,7 @@ int main()
             cout << "Enter the employee ID to delete: ";
             cin >> employeeID;
             cout << endl;
-            Function::delete_byEmployeeID(Employee_details, employeeID);
-            Function::save_details("Employee_Details_saved.txt",Employee_details);
+            Function::delete_byEmployeeID(Employee_details, employeeID);            
             break;
           }
           if (choice == "A")
@@ -191,15 +189,13 @@ int main()
             cout << "Enter the year of birth to delete: ";
             cin >>age;
             cout << endl;
-            Function::delete_byAge(Employee_details,age);
-            Function::save_details("Employee_Details_saved.txt",Employee_details);
+            Function::delete_byAge(Employee_details,age);            
             break;
           }
           if (choice == "R")
           {
             Function::delete_byPositions(Positions, Employee_details);
             Function::get_Positions(Employee_details,Positions);
-            Function::save_details("Employee_Details_saved.txt",Employee_details);
             break;
           }
           break;
@@ -272,6 +268,6 @@ int main()
         }
       }
   }
-  Function::save_details("Employee_Details_saved.txt",Employee_details);
+  Function::save_details("Employee_Details.txt",Employee_details);
   return 0;
 }
