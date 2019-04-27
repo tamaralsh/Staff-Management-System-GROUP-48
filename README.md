@@ -34,9 +34,9 @@ Hence, a staff management system that works as a database to record information 
  - The KPI weightage is already calculated in the _**kpi.txt**_ file and only **5** factors are taken into account when calculating the KPI score. In the text file, each weightage score is seperated by a space (" ") and the datas are in the order of name, employee ID and 5 KPI weightage scores (in the case where an employee gets a perfect score for every weightage score, the total final KPI score would be 100). Below is an example of the data:
  
  ```sh
-Lee Tak Wah
-200001
-24 45 2 3 10
+Lee Tak Wah   <- name
+200001        <- employee ID
+24 45 2 3 10  <- weightage scores
 ```
 
 ## General Instructions
