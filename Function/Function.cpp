@@ -450,7 +450,7 @@ string Function::largestEmployeeID(vector<Function::Details> Employee_details,st
 }
 
 
-int Function::edit_details(vector<Function::Details>Employee_details, Function::Details &details)
+int Function::edit_details(vector<Function::Details>Employee_details, Function::Details &details,int i)
 {
   int edit_selection;
   string input;
@@ -587,6 +587,7 @@ int Function::edit_details(vector<Function::Details>Employee_details, Function::
             getline(cin,input);
             cout << endl;
             (details.attribute).push_back(input);
+            add_attribute_toAll(Employee_details,input);
             for (int i = 0; i < Employee_details.size(); i++)
             {
               if ((Employee_details[i].attribute)[Employee_details.size()-1] == input)
@@ -600,7 +601,8 @@ int Function::edit_details(vector<Function::Details>Employee_details, Function::
           }
           if (add_or_delete == 2)
           {
-            int choice,index;
+            int choice;
+            if ((details.attribute).empty()) { cout << "There are no attributes to be deleted"; break; }
             Function::print_attribute_delete(details.attribute,details.attributevalue);
             cout << "WARNING: Deleting this attribute deletes the similar attribute for all employees" << endl;
             cout << "Enter choice to delete or enter 0 to exit : ";
@@ -637,7 +639,7 @@ void Function::add_attribute_toAll(vector<Function::Details> & Employee_details,
   for (int i = 0; i < Employee_details.size(); i++)
   {
     (Employee_details[i].attribute).push_back(buffer_attribute[i]);
-    (Employee_details[i].attributevalue).push_back("");
+    (Employee_details[i].attributevalue).push_back("N/A");
   }
 }
 
@@ -736,7 +738,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             cout << "Enter any additional attributes : " << endl;
             cin.ignore();
             getline(cin,input);
-            add_attribute_toAll(Employee_details,attribute);
+            add_attribute_toAll(Employee_details,input);
             cout << "Enter the attribute value : " << endl;
             cin >> input;
             if (buffer.attribute.size() > 0)
