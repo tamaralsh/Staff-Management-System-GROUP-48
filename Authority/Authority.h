@@ -14,4 +14,4 @@ public:
   static int menu_display_unauthorized();
 };
 
-#endif // AUTHORITY_H
+#endif // AUTHORITY_H //
