@@ -762,7 +762,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
       case 11:
         {
           int continue_choice = 1;
-
+          add_attributes_toNew_employee(Employee_details.attribute, buffer);
           while (continue_choice !=0)
           {
             cout << "Enter any additional attributes : " << endl;
@@ -795,7 +795,6 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
         }
 
   }
-  add_attributes_toNew_employee(Employee_details.attribute, buffer);
   Function::print_details(buffer);
   cout << "Check details entered. If you wish to edit, enter 1, else, enter 0 to confirm : ";
   cin >> confirmation;
