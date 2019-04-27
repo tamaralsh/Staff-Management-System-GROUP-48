@@ -450,7 +450,7 @@ string Function::largestEmployeeID(vector<Function::Details> Employee_details,st
 }
 
 
-int Function::edit_details(vector<Function::Details>Employee_details, Function::Details &details)
+int Function::edit_details(vector<Function::Details> &Employee_details, Function::Details &details)
 {
   int edit_selection;
   string input;
