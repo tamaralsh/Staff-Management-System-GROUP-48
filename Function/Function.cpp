@@ -794,7 +794,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
             cin >> input;
             cout << endl;
             (buffer.attributevalue).push_back(input);
-            if (buffer.attribute.size() > 0)
+            if ((buffer.attribute).size() > 0)
             { 
               cout << endl << "Additional Attributes : " << endl;
               Function::print_attributes(buffer.attribute,buffer.attributevalue);
