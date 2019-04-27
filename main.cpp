@@ -48,7 +48,6 @@ int main()
   const string KPIfilename = "kpi.txt", employeeData_filename = "Employee_Details.txt";
   string IDpass_filename = "UserIDpass.txt";
   vector<KPI::Record> book;
-  KPI::loadKPIvector(KPIfilename, book);
 
   // Declare variable //
   int selection,continue_choice;
@@ -155,7 +154,7 @@ int main()
         }
         case 7:
         {
-          Function::createEmployee(Employee_details,UserIDpass,book);
+          Function::createEmployee(Employee_details,UserIDpass);
           break;
         }
         case 8:
