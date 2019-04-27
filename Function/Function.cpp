@@ -341,6 +341,7 @@ void Function::search_bySalary(double salary, vector<Function::Details> Employee
   if ((count == 0) && (high_or_low == "H")) { cout << endl << "There are no employees with salaries higher than the value entered."; }
 }
 
+// Delete employee by ID //
 int Function::delete_byEmployeeID(vector<Function::Details> &Employee_details, string employeeID)
 {
   int count = 0;
@@ -370,6 +371,7 @@ int Function::delete_byEmployeeID(vector<Function::Details> &Employee_details, s
   return 0;
 }
 
+// Delete employee by name //
 int Function::delete_byName(vector<Function::Details> &Employee_details, string name)
 {
   int count = 0;
