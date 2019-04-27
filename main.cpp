@@ -48,7 +48,7 @@ int main()
   const string KPIfilename = "kpi.txt", employeeData_filename = "Employee_Details.txt";
   string IDpass_filename = "UserIDpass.txt";
   vector<KPI::Record> book;
-  loadKPIvector(KPIfilename, book);
+  KPI::loadKPIvector(KPIfilename, book);
 
   // Declare variable //
   int selection,continue_choice;
