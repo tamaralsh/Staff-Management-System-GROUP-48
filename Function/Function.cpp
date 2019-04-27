@@ -677,6 +677,7 @@ int Function::edit_details(vector<Function::Details> &Employee_details, Function
  return 0;
 }
 
+// Add new attribute to all employees //
 void Function::add_attribute_toAll(vector<Function::Details> & Employee_details, string attribute)
 {
   for (int i = 0; i < Employee_details.size(); i++)
@@ -686,6 +687,7 @@ void Function::add_attribute_toAll(vector<Function::Details> & Employee_details,
   }
 }
 
+// Create a new employee //
 void Function::createEmployee(vector<Function::Details> &Employee_details,vector<Function::IDpass> & UserIDpass)
 {
   string input, employeeID;
@@ -830,6 +832,7 @@ void Function::createEmployee(vector<Function::Details> &Employee_details,vector
   save_details("Employee_Details.txt",Employee_details);
 }
 
+// Collect employee IDs and passwords from UserIDpass.txt and adds them to a vector //
 void Function::load_IDpass(string IDpass_filename, vector<Function::IDpass> &UserIDpass)
 {
   string input;
