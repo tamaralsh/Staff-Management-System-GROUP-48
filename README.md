@@ -80,7 +80,7 @@ The format of input when using **Create Employee function and Edit Employee func
 - Attendance (total attended days / work days in a year)
 - Salary (Only numerical letters)
 - Education and work history (Work or education history startyear-endyear)
-- Attribute (Any alphanumerical word, appends similar attribute to other employee details)
+- Attribute (Any alphanumerical word, adds similar attribute to other employee details)
 
 _**Follow strictly to the instructions given as entering letters which are not in the options might cause the program to work inaccurately.**_
 
