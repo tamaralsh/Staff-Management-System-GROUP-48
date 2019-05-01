@@ -52,7 +52,7 @@ If any employee information is updated, the newly updated information will be ou
 ### Compilation and execution instructions
 To compile this program, type 
 ```sh
-make file
+make main
 ```
 in the terminal in a Linux environment. Once the compilation is successful, type 
 ```sh
